@@ -1,4 +1,3 @@
-import React from 'react';
 import { Card, CardContent, CardMedia, Typography, useMediaQuery, useTheme } from '@mui/material';
 import StarIcon from '@mui/icons-material/Star';
 import { RanobeTop } from '../../types/ranobe';
@@ -6,7 +5,7 @@ import classes from './RanobeTopCard.module.css';
 
 interface RanobeTopCardProps extends RanobeTop {}
 
-const RanobeTopCard: React.FC<RanobeTopCardProps> = ({ name, rating, image }) => {
+const RanobeTopCard = ({ name, rating, image }: RanobeTopCardProps) => {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
 
