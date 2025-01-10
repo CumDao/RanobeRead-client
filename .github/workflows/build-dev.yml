@@ -16,12 +16,12 @@ jobs:
 
     steps:
     - uses: actions/checkout@v4
-    - name: Install deps
-      run: npm ci --legacy-peer-deps
-      shell: bash
-    - name: Build 
-      run: npm run build
-      shell: bash
+    - name: Install deps && build
+      run: |
+        export NVM_DIR="$HOME/.nvm"
+        [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+        nvm use 23.6
+        npm ci --legacy-peer-deps && npm run build
     - name: Deploy
       env: 
         S3: ${{ secrets.S3_DEV }}
