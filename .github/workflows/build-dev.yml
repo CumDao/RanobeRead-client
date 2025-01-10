@@ -25,4 +25,4 @@ jobs:
     - name: Deploy
       env: 
         S3: ${{ secrets.S3_DEV }}
-      run: aws sync ./dist ${S3} --endpoint-url=https://storage.yandexcloud.net
+      run: aws s3 sync ./dist ${S3} --endpoint-url=https://storage.yandexcloud.net
