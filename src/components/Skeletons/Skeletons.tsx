@@ -12,13 +12,18 @@ const Skeletons = ({ isGrid = false }: SkeletonsProps) => {
   for (let index = 0; index < 15; index++) {
     if (isGrid) {
       skeletons.push(
-        <Grid2 size={3}>
-          <Skeleton key={index} variant="rounded" animation="wave" className={classes.sceleton} />
+        <Grid2 size={3} key={`base-${index}`}>
+          <Skeleton variant="rounded" animation="wave" className={classes.skeleton} />
         </Grid2>,
       );
     } else {
       skeletons.push(
-        <Skeleton key={index} variant="rounded" animation="wave" className={classes.sceleton} />,
+        <Skeleton
+          key={`top-${index}`}
+          variant="rounded"
+          animation="wave"
+          className={classes.skeleton}
+        />,
       );
     }
   }

@@ -1,10 +1,27 @@
-.listContainer {
-  overflow-x: auto;
-  padding: 0 10px;
+.carousel {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
 }
 
-.listContainer::-webkit-scrollbar {
+.skeletonsList {
+  overflow-x: auto;
+}
+
+.skeletonsList::-webkit-scrollbar {
   display: none;
+}
+
+.skeletonsWrapper {
+  display: inline-flex;
+  gap: 10px;
+}
+
+.chunk {
+  display: flex;
+  gap: 50px;
+  justify-content: center;
+  width: 100%;
 }
 
 .title {
@@ -14,11 +31,6 @@
   margin-bottom: 10px;
 }
 
-.cardWrapper {
-  display: inline-flex;
-  gap: 10px;
-}
-
 .empty {
   width: 100%;
   font-weight: 900;
@@ -26,39 +38,6 @@
   text-align: center;
 }
 
-.container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 200px;
-  margin-top: 0;
-  border-radius: 10px;
-}
-
-.arrow.arrow {
-  position: absolute;
-  z-index: 1;
-  height: 40px;
-  margin-top: 125px;
-  opacity: 0;
-}
-
-.listContainer:hover .arrow {
-  opacity: 1;
-}
-
-.leftArrow {
-  left: 10px;
-  transform: translateY(-50%);
-}
-
-.rightArrow {
-  right: 5px;
-  transform: translateY(-50%);
-}
-
 @media (max-width: 960px) {
-  .arrow.arrow {
-    display: none;
-  }
+  
 }
