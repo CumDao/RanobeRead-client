@@ -25,29 +25,31 @@
   text-align: center;
 }
 
-.arrow.leftArrow {
+.arrow.arrow {
   position: absolute;
-  left: -50px;
   top: 50%;
   transform: translateY(-50%);
   z-index: 2;
+}
+
+.arrow.leftArrow {
+  left: -5px;
 }
 
 .arrow.rightArrow {
-  position: absolute;
-  right: 0px;
-  top: 50%;
-  transform: translateY(-50%);
-  z-index: 2;
+  right: -5px;
 }
 
-.carouselWrapper {
-  margin-left: 50px;
+.listWrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
 }
 
 .listContainer {
   overflow-x: auto;
   padding: 0 10px;
+  scroll-behavior: smooth;
 }
 
 .listContainer::-webkit-scrollbar {
@@ -56,9 +58,11 @@
 
 .cardWrapper {
   display: inline-flex;
-  gap: 10px;
+  gap: 20px;
 }
 
 @media (max-width: 960px) {
-  
+  .arrow {
+    display: none;
+  }
 }

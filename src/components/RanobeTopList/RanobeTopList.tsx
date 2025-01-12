@@ -4,43 +4,55 @@ import RanobeTopCard from '../RanobeTopCard';
 import classes from './RanobeTopList.module.css';
 import Skeletons from '../Skeletons';
 import { top } from '../../constants/titles';
-import AliceCarousel from 'react-alice-carousel';
-import 'react-alice-carousel/lib/alice-carousel.css';
 import { IconButton, useMediaQuery, useTheme } from '@mui/material';
 import NavigateBeforeIcon from '@mui/icons-material/NavigateBefore';
 import NavigateNextIcon from '@mui/icons-material/NavigateNext';
 import CardLink from '../CardLink';
+import { RefObject, useRef } from 'react';
+import clsx from 'clsx';
 
-const LeftArrow = () => {
+interface ArrowProps {
+  scrollContainer: RefObject<HTMLDivElement | null>;
+}
+
+const LeftArrow = ({ scrollContainer }: ArrowProps) => {
   const theme = useTheme();
+
+  const handleScrollLeft = () => {
+    if (scrollContainer.current) {
+      scrollContainer.current.scrollBy({ left: -500, behavior: 'smooth' });
+    }
+  };
 
   return (
     <IconButton
-      className={`${classes.arrow} ${classes.leftArrow}`}
+      className={clsx(classes.arrow, classes.leftArrow)}
       style={{
         backgroundColor: theme.palette.primary.main,
       }}
-      onClick={() => {
-        console.log('ergerg');
-      }}
+      onClick={handleScrollLeft}
     >
       <NavigateBeforeIcon />
     </IconButton>
   );
 };
 
-const RightArrow = () => {
+const RightArrow = ({ scrollContainer }: ArrowProps) => {
   const theme = useTheme();
+
+  const handleScrollRight = () => {
+    if (scrollContainer.current) {
+      scrollContainer.current.scrollBy({ left: 500, behavior: 'smooth' });
+    }
+  };
 
   return (
     <IconButton
-      className={`${classes.arrow} ${classes.rightArrow}`}
+      className={clsx(classes.arrow, classes.rightArrow)}
       style={{
         backgroundColor: theme.palette.primary.main,
       }}
-      onClick={() => {
-        console.log('ergerg');
-      }}
+      onClick={handleScrollRight}
     >
       <NavigateNextIcon />
     </IconButton>
@@ -64,6 +76,8 @@ const RanobeTopList = () => {
       ))
     : [];
 
+  const listContainerRef = useRef<HTMLDivElement>(null);
+
   return (
     <>
       <div className={classes.title}>{top}</div>
@@ -73,30 +87,13 @@ const RanobeTopList = () => {
             <Skeletons />
           </div>
         </div>
-      ) : isMobile ? (
-        <div className={classes.listContainer}>
-          <div className={classes.cardWrapper}>
-            {isListReady &&
-              topRanobesData.map((ranobe) => <RanobeTopCard key={ranobe.id} {...ranobe} />)}
-          </div>
-        </div>
       ) : (
-        <div className={classes.carouselWrapper}>
-          <AliceCarousel
-            items={items}
-            autoPlay={false}
-            disableDotsControls
-            mouseTracking
-            keyboardNavigation
-            renderPrevButton={() => <LeftArrow />}
-            renderNextButton={() => <RightArrow />}
-            responsive={{
-              0: { items: 2 }, // 1 элемент на маленьких экранах
-              600: { items: 3 }, // 2 элемента на средних экранах
-              1024: { items: 4, itemsFit: 'contain' }, // 3 элемента на больших экранах
-              1440: { items: 5, itemsFit: 'contain' }, // 4 элемента на очень больших экранах
-            }}
-          />
+        <div className={classes.listWrapper}>
+          {!isMobile && <LeftArrow scrollContainer={listContainerRef} />}
+          <div className={classes.listContainer} ref={listContainerRef}>
+            <div className={classes.cardWrapper}>{isListReady && items}</div>
+          </div>
+          {!isMobile && <RightArrow scrollContainer={listContainerRef} />}
         </div>
       )}
     </>

@@ -1,7 +1,7 @@
 {
   "name": "ranobe-read",
   "private": true,
-  "version": "0.0.0",
+  "version": "0.0.2",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -23,7 +23,6 @@
     "clsx": "^2.1.1",
     "ramda": "^0.30.1",
     "react": "19.0.0",
-    "react-alice-carousel": "^2.9.1",
     "react-dom": "19.0.0",
     "react-redux": "^9.2.0",
     "react-router-dom": "^7.1.1",

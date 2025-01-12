@@ -1,5 +1,5 @@
 import { Box, Typography } from '@mui/material';
-import styles from './NotFound.module.css';
+import styles from './NotFoundPage.module.css';
 import { NavLink } from 'react-router-dom';
 import NotFoundGif from '../../assets/error.webp';
 
