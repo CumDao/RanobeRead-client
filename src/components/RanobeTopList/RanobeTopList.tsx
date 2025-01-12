@@ -6,9 +6,10 @@ import Skeletons from '../Skeletons';
 import { top } from '../../constants/titles';
 import AliceCarousel from 'react-alice-carousel';
 import 'react-alice-carousel/lib/alice-carousel.css';
-import { IconButton, useTheme } from '@mui/material';
+import { IconButton, useMediaQuery, useTheme } from '@mui/material';
 import NavigateBeforeIcon from '@mui/icons-material/NavigateBefore';
 import NavigateNextIcon from '@mui/icons-material/NavigateNext';
+import CardLink from '../CardLink';
 
 const LeftArrow = () => {
   const theme = useTheme();
@@ -52,11 +53,14 @@ const RanobeTopList = () => {
 
   const isListReady = !isLoading && topRanobesData.length;
 
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down('md'));
+
   const items = isListReady
     ? topRanobesData.map((ranobe) => (
-        <div className={classes.cardWrapper} key={ranobe.id}>
+        <CardLink key={ranobe.id} id={ranobe.id}>
           <RanobeTopCard {...ranobe} />
-        </div>
+        </CardLink>
       ))
     : [];
 
@@ -67,6 +71,13 @@ const RanobeTopList = () => {
         <div className={classes.skeletonsList}>
           <div className={classes.skeletonsWrapper}>
             <Skeletons />
+          </div>
+        </div>
+      ) : isMobile ? (
+        <div className={classes.listContainer}>
+          <div className={classes.cardWrapper}>
+            {isListReady &&
+              topRanobesData.map((ranobe) => <RanobeTopCard key={ranobe.id} {...ranobe} />)}
           </div>
         </div>
       ) : (

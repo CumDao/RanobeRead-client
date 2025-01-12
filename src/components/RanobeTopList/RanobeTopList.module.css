@@ -45,6 +45,20 @@
   margin-left: 50px;
 }
 
+.listContainer {
+  overflow-x: auto;
+  padding: 0 10px;
+}
+
+.listContainer::-webkit-scrollbar {
+  display: none;
+}
+
+.cardWrapper {
+  display: inline-flex;
+  gap: 10px;
+}
+
 @media (max-width: 960px) {
   
 }
