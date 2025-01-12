@@ -1,9 +1,3 @@
-.carousel {
-  display: flex;
-  flex-direction: column;
-  overflow: hidden;
-}
-
 .skeletonsList {
   overflow-x: auto;
 }
@@ -15,13 +9,6 @@
 .skeletonsWrapper {
   display: inline-flex;
   gap: 10px;
-}
-
-.chunk {
-  display: flex;
-  gap: 50px;
-  justify-content: center;
-  width: 100%;
 }
 
 .title {
@@ -36,6 +23,26 @@
   font-weight: 900;
   font-size: 5vw;
   text-align: center;
+}
+
+.arrow.leftArrow {
+  position: absolute;
+  left: -50px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 2;
+}
+
+.arrow.rightArrow {
+  position: absolute;
+  right: 0px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 2;
+}
+
+.carouselWrapper {
+  margin-left: 50px;
 }
 
 @media (max-width: 960px) {

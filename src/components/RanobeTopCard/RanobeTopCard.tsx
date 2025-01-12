@@ -2,6 +2,7 @@ import { Card, CardContent, CardMedia, Typography, useMediaQuery, useTheme } fro
 import StarIcon from '@mui/icons-material/Star';
 import { RanobeTop } from '../../types/ranobe';
 import classes from './RanobeTopCard.module.css';
+import { DragEvent } from 'react';
 
 interface RanobeTopCardProps extends RanobeTop {}
 
@@ -9,10 +10,19 @@ const RanobeTopCard = ({ name, rating, image }: RanobeTopCardProps) => {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
 
+  const handleDragStart = (e: DragEvent<HTMLDivElement>) => e.preventDefault();
+
   return (
     <Card className={classes.card}>
       <div className={classes.imageContainer}>
-        <CardMedia className={classes.image} component="img" image={image} alt={name} />
+        <CardMedia
+          className={classes.image}
+          component="img"
+          image={image}
+          alt={name}
+          draggable={false}
+          onDrag={handleDragStart}
+        />
         {!isMobile && (
           <div
             className={classes.ratingBox}
