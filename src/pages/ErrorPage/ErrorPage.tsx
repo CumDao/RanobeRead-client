@@ -2,6 +2,7 @@ import { Box, Button, Typography } from '@mui/material';
 import styles from './ErrorPage.module.css';
 import { useNavigate } from 'react-router-dom';
 import LoadErrorGif from '../../assets/load_error.webp';
+import Header from '../../components/Header';
 
 const ErrorPage = () => {
   const navigate = useNavigate();
@@ -13,6 +14,7 @@ const ErrorPage = () => {
   return (
     <>
       <div className={styles.errorPage}>
+        <Header />
         <Typography variant="h6" color="error">
           Упс! Что-то пошло не так
         </Typography>

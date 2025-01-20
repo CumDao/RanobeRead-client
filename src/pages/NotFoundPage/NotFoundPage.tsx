@@ -2,11 +2,13 @@ import { Box, Typography } from '@mui/material';
 import styles from './NotFoundPage.module.css';
 import { NavLink } from 'react-router-dom';
 import NotFoundGif from '../../assets/error.webp';
+import Header from '../../components/Header';
 
 const NotFound = () => {
   return (
     <>
       <div className={styles.errorPage}>
+        <Header />
         <Typography variant="h4" color="error" className={styles.errorHeading}>
           Cтраница не найдена
         </Typography>

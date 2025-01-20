@@ -1,9 +1,30 @@
 import { createTheme } from '@mui/material';
 
-const theme = createTheme({
+const themeDark = createTheme({
   colorSchemes: {
     dark: true,
   },
+  palette: {
+    mode: 'dark',
+    primary: {
+      main: '#666666',
+      dark: '#838383',
+    },
+  },
 });
 
-export default theme;
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+const themeLight = createTheme({
+  colorSchemes: {
+    dark: false,
+  },
+  palette: {
+    mode: 'light',
+    primary: {
+      main: '#bfbaba',
+      light: '#878787',
+    },
+  },
+});
+
+export default themeDark;
