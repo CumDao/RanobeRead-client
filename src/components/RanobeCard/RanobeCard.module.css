@@ -50,16 +50,14 @@
   flex-direction: column;
   justify-content: space-between;
 }
-.statusBox {
 
-}
 .status.status {
 position: absolute;
 }
 
 .tags.tags {
   margin-top: 10px;
-  height: 75px;
+  height: 84px;
   overflow: hidden;
   display: flex;
   flex-direction: row;

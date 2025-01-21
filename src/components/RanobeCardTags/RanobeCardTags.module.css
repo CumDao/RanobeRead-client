@@ -1,8 +1,0 @@
-.tagBox{
-}
-.tag.tag{
-  padding: 10px;
-  border-radius: 5px;
-  font-size: 10px;
-  color: var(--tagBox-collor-text);
-}

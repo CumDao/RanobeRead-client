@@ -39,12 +39,6 @@ const RanobeTopCard = ({ name, rating, image }: RanobeTopCardProps) => {
         <Typography className={classes.name} variant="subtitle2">
           {name}
         </Typography>
-        {/* <div className={classes.ratingBox}>
-          <StarIcon className={classes.starIcon} fontSize="small" />
-          <Typography className={classes.rating} variant="body2" fontWeight="bold">
-            {rating}
-          </Typography>
-        </div> */}
       </CardContent>
     </Card>
   );
