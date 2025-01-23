@@ -1,6 +1,10 @@
 .listContainer {
-  overflow-x: auto;
-  padding: 0 10px;
+  gap: 10px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
 }
 
 .listContainer::-webkit-scrollbar {

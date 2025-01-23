@@ -3,8 +3,8 @@ import { useAppSelector } from '../../hooks/redux';
 import { selectRanobesData, selectRanobesLoading } from '../../redux/selectors/getRanobes';
 import Skeletons from '../Skeletons';
 import classes from './RanobeList.module.css';
-import RanobeTopCard from '../RanobeTopCard';
 import { list } from '../../constants/titles';
+import RanobeCard from '../RanobeCard/RanobeCard';
 
 const RanobeList = () => {
   const topRanobesData = useAppSelector(selectRanobesData);
@@ -16,15 +16,13 @@ const RanobeList = () => {
     <>
       <div className={classes.title}>{list}</div>
       <div className={classes.listContainer}>
-        <Grid2 container spacing={2}>
-          {isListReady &&
-            topRanobesData.map((ranobe) => (
-              <Grid2 size={3} key={ranobe.id}>
-                <RanobeTopCard {...ranobe} />
-              </Grid2>
-            ))}
-          {isLoading && <Skeletons isGrid />}
-        </Grid2>
+        {isListReady &&
+          topRanobesData.map((ranobe) => (
+            <Grid2 size={3} key={ranobe.id}>
+              <RanobeCard {...ranobe} />
+            </Grid2>
+          ))}
+        {isLoading && <Skeletons isGrid />}
       </div>
     </>
   );

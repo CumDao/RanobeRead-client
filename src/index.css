@@ -20,4 +20,8 @@
   --logo-color: rgba(200, 200, 200, 1);
 
   --link-color: rgb(25, 118, 210);
+  --tagBox-collor-black: rgb(102, 102, 102);;
+  --tagBox-collor-border: rgb(131, 131, 131);;
+  --tagBox-collor-text:rgb(51, 238, 129);
 }
+

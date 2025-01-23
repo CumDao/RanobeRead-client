@@ -1,21 +1,19 @@
 .card {
-  width: 135px;
-  min-width: 135px;
-  height: 235px;
+  width: 380px;
+  height: 300px;
   border-radius: 10px;
   box-shadow: 0 4px 8px var(--shadow-color);
   overflow: hidden;
-  transition: transform 0.3s, box-shadow 0.3s;
+  transition:
+    transform 0.3s,
+    box-shadow 0.3s;
   display: flex;
-  flex-direction: column;
+  flex-wrap: wrap;
 }
-
 
 .imageContainer {
   position: relative;
-  width: 100%;
-  padding-top: 133.33%;
-  overflow: hidden;
+  width: 50%;
 }
 
 .image {
@@ -24,12 +22,6 @@
   left: 0;
   width: 100%;
   height: 100%;
-  object-fit: cover;
-  -webkit-user-drag: none;
-  -moz-user-drag: none;
-  -ms-user-drag: none;
-  user-drag: none;
-  pointer-events: none;
 }
 
 .ratingBox {
@@ -38,7 +30,9 @@
   align-items: center;
   justify-content: center;
   border-radius: 20px;
-  transition: opacity 0.3s, visibility 0.3s;
+  transition:
+    opacity 0.3s,
+    visibility 0.3s;
 }
 
 .starIcon {
@@ -49,18 +43,40 @@
   color: var(--rating-color);
   font-weight: bold;
 }
-
-.bottom.bottom {
-  margin-top: 5px;
+.contentRight {
+  width: 40%;
   flex-grow: 1;
   display: flex;
   flex-direction: column;
-  align-items: start;
-  padding: 0;
+  justify-content: space-between;
+}
+
+.status.status {
+  position: absolute;
+}
+
+.tags.tags {
+  margin-top: 10px;
+  height: 84px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+.description.description {
+  margin-top: 5px;
+  font-size: small;
+  display: -webkit-box;
+  -webkit-line-clamp: 6;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 100%;
 }
 
 .name {
-  font-size: 14px;
+  font-size: 12px;
   font-weight: bold;
   text-align: center;
   display: -webkit-box;
@@ -71,7 +87,7 @@
   width: 100%;
 }
 
-@media(min-width: 960px) {
+@media (min-width: 960px) {
   .ratingBox {
     align-items: center;
     justify-content: center;
@@ -83,28 +99,13 @@
     box-shadow: 0 2px 4px var(--shadow-color);
     z-index: 1;
     opacity: 0;
-    transition: opacity 0.3s, visibility 0.3s;
+    transition:
+      opacity 0.3s,
+      visibility 0.3s;
   }
 
   .card:hover .ratingBox {
     opacity: 1;
     visibility: flex;
-  }
-}
-
-@media (max-width: 960px) {
-  .card {
-    width: 115px;
-    min-width: 115px;
-    height: 205px;
-  }
-
-}
-
-@media (max-width: 480px) {
-  .card {
-    width: 95px;
-    min-width: 95px;
-    height: 180px;
   }
 }

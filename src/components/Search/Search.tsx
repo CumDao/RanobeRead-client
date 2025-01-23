@@ -4,6 +4,7 @@ import SearchIcon from '@mui/icons-material/Search';
 import { ChangeEvent, useState } from 'react';
 
 const Search = () => {
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [_, setSearch] = useState('');
   const heandleSearch = (event: ChangeEvent<HTMLInputElement>) => {
     setSearch(event.target.value);

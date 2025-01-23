@@ -6,16 +6,16 @@ export interface RanobeTop {
 }
 export interface Ranobe extends RanobeTop {
   description: string;
-  country: Country;
+  status: string;
   tags: Tag[];
 }
 
-interface Tag {
+export interface Tag {
   id: number;
   name: string;
 }
 
-interface Country {
-  id: number;
-  name: string;
-}
+// interface Country {
+//   id: number;
+//   name: string;
+// }
