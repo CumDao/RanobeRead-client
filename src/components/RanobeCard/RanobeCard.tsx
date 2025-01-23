@@ -3,6 +3,7 @@ import { Ranobe } from '../../types/ranobe';
 import classes from './RanobeCard.module.css';
 import StarIcon from '@mui/icons-material/Star';
 import TagList from '../RanobeCardTags/RanobeCardTags';
+
 const RanobeCard = ({ id, name, rating, image, description, status, tags }: Ranobe) => {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
