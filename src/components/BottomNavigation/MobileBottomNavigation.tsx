@@ -19,11 +19,11 @@ const MobileBottomNavigation = () => {
         showLabels
         className={classes.bottomNav}
         sx={{
-          backgroundColor: theme.palette.primary.contrastText,
+          backgroundColor: theme.palette.primary.main,
           '& .MuiBottomNavigationAction-root': {
             color: theme.palette.text.secondary,
             '&:hover': {
-              color: theme.palette.primary.main,
+              color: theme.palette.primary.dark,
             },
           },
         }}
