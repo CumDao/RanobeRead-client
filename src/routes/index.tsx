@@ -1,27 +1,17 @@
-import { createBrowserRouter, Outlet } from 'react-router-dom';
-import Header from '../components/Header';
+import { createBrowserRouter } from 'react-router-dom';
 import MainPage from '../pages/MainPage';
-import MobileBottomNavigation from '../components/BottomNavigation';
 import { store } from '../redux/store';
 import NotFound from '../pages/NotFoundPage';
 import { fetchTopRanobes } from '../redux/middleware/TopRanobesThunk';
 import { fetchRanobes } from '../redux/middleware/ListRanobesThunk';
 import RanobeDetailPage from '../pages/RanobeDetailPage';
+import { MainLayout } from './layouts';
 
 const routes = createBrowserRouter([
   {
-    element: (
-      <>
-        <Header />
-        <Outlet />
-        <MobileBottomNavigation />
-      </>
-    ),
+    path: '/',
+    element: <MainLayout />,
     children: [
-      {
-        path: '/ranobe/:id',
-        element: <RanobeDetailPage />,
-      },
       {
         path: '/',
         element: <MainPage />,
@@ -29,6 +19,10 @@ const routes = createBrowserRouter([
           store.dispatch(fetchTopRanobes());
           store.dispatch(fetchRanobes());
         },
+      },
+      {
+        path: '/ranobe/:id',
+        element: <RanobeDetailPage />,
       },
     ],
     errorElement: <NotFound />,

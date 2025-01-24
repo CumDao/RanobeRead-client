@@ -1,5 +1,5 @@
 import { RouterProvider } from 'react-router-dom';
-import routes from './utils/routes';
+import routes from './routes';
 import { Provider } from 'react-redux';
 import ThemeProvider from '@mui/material/styles/ThemeProvider';
 import CssBaseline from '@mui/material/CssBaseline/CssBaseline';

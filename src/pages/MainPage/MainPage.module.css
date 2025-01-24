@@ -4,10 +4,12 @@
   padding: 0 15px;
   width: 100%;
   padding-top: 60px;
+  padding-bottom: 10px;
 }
 
 @media (max-width: 960px) {
   .mainContainer {
     padding-top: 60px;
+    padding-bottom: 80px;
   }
 }

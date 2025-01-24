@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const api = axios.create({
-  baseURL: 'https://api-dev.ranobe-read.ru/',
+  baseURL: import.meta.env.VITE_API_URL,
   timeout: 6000,
 });
 

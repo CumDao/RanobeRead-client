@@ -3,8 +3,9 @@
 ## Запуск проекта для разработки
 
 - Уставновить зависимости `npm i`
-- Включить в среде разработки eslint, prettier
-- Запустить проект `npm run start`
+- Включить в среде разработки eslint, prettier, stylelint
+- Создать .env.development или .env.production(для запуска в дев или прод режиме)
+- Запустить проект `npm run start:dev` или `npm run start:prod`
 
 ## Дополнительная информация:
 ## Работа с репо
