@@ -6,8 +6,8 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
-    "lint": "eslint .",
-    "lint:fix": "eslint . --ext js,jsx --fix && stylelint '**/*.css' --fix",
+    "lint": "eslint . && npx stylelint '**/*.css'",
+    "lint:fix": "eslint . --ext js,jsx --fix && npx stylelint '**/*.css' --fix",
     "preview": "vite preview",
     "prettier": "prettier . --check --ignore-unknown",
     "prettier:fix": "prettier . -w",
@@ -63,7 +63,7 @@
       "eslint --fix",
       "prettier --write --ignore-unknown"
     ],
-    "src/**/*.css": "prettier --write --ignore-unknown",
+    "src/**/*.css": "stylelint --fix",
     "src/**/*.{json,md}": "prettier --write --ignore-unknown"
   }
 }

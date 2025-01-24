@@ -2,10 +2,29 @@
   "extends": ["stylelint-config-standard"],
   "rules": {
     "alpha-value-notation": null,
-    "color-function-notation": null,
-    "selector-max-id": 0,
-    "selector-class-pattern": null,
-    "unit-allowed-list": ["%", "deg", "rem", "ms", "dvh"]
+    "color-function-notation": "modern",
+    "selector-max-id": [
+      0,
+      {
+        "severity": "error"
+      }
+    ],
+    "selector-class-pattern": [
+      "^[a-z][a-zA-Z0-9]+$",
+      {
+        "severity": "error",
+        "message": "Class name should be cammelCase"
+      }
+    ],
+    "unit-allowed-list": ["%", "deg", "rem", "ms", "dvh", "px", "vw", "vh", "s"],
+    "media-feature-range-notation": null,
+    "color-no-hex": [
+      true,
+      {
+        "severity": "error",
+        "message": "Don't use hex colors"
+      }
+    ]
   },
-  "defaultSeverity": "warning"
+  "defaultSeverity": "error"
 }

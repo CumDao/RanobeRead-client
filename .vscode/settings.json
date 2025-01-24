@@ -1,0 +1,4 @@
+{
+  "eslint.useFlatConfig": true,
+  "stylelint.validate": ["css", "scss"],
+}

@@ -4,24 +4,21 @@
   line-height: 1.5;
   font-weight: 400;
   color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
+  color: rgba(255 255 255 / 0.87);
   font-synthesis: none;
   text-rendering: optimizelegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
-  --error-color: rgb(223, 13, 17);
-  --error-textColor: rgb(250, 250, 250);
-  --rating-color: rgb(207, 240, 23);
-
-  --shadow-color-hover: rgba(0, 0, 0, 0.3);
-  --shadow-color: rgba(0, 0, 0, 0.2);
-
-  --logo-color: rgba(200, 200, 200, 1);
-
-  --link-color: rgb(25, 118, 210);
-  --tagBox-collor-black: rgb(102, 102, 102);;
-  --tagBox-collor-border: rgb(131, 131, 131);;
-  --tagBox-collor-text:rgb(51, 238, 129);
+  --error-color: rgb(223 13 17);
+  --error-color-text: rgb(250 250 250);
+  --rating-color: rgb(207 240 23);
+  --shadow-color-hover: rgba(0 0 0 / 0.3);
+  --shadow-color: rgba(0 0 0 / 0.2);
+  --logo-color: rgba(200 200 200);
+  --link-color: rgb(25 118 210);
+  --tag-box-bg-color: rgb(102 102 102);
+  --tag-box-border-color: rgb(131 131 131);
+  --tag-box-text-color: rgb(51 238 129);
 }
 

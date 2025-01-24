@@ -5,11 +5,12 @@
   border-radius: 10px;
   box-shadow: 0 4px 8px var(--shadow-color);
   overflow: hidden;
-  transition: transform 0.3s, box-shadow 0.3s;
+  transition:
+    transform 0.3s,
+    box-shadow 0.3s;
   display: flex;
   flex-direction: column;
 }
-
 
 .imageContainer {
   position: relative;
@@ -28,7 +29,6 @@
   -webkit-user-drag: none;
   -moz-user-drag: none;
   -ms-user-drag: none;
-  user-drag: none;
   pointer-events: none;
 }
 
@@ -38,7 +38,9 @@
   align-items: center;
   justify-content: center;
   border-radius: 20px;
-  transition: opacity 0.3s, visibility 0.3s;
+  transition:
+    opacity 0.3s,
+    visibility 0.3s;
 }
 
 .starIcon {
@@ -71,7 +73,7 @@
   width: 100%;
 }
 
-@media(min-width: 960px) {
+@media (min-width: 960px) {
   .ratingBox {
     align-items: center;
     justify-content: center;
@@ -83,7 +85,9 @@
     box-shadow: 0 2px 4px var(--shadow-color);
     z-index: 1;
     opacity: 0;
-    transition: opacity 0.3s, visibility 0.3s;
+    transition:
+      opacity 0.3s,
+      visibility 0.3s;
   }
 
   .card:hover .ratingBox {
@@ -98,7 +102,6 @@
     min-width: 115px;
     height: 205px;
   }
-
 }
 
 @media (max-width: 480px) {
