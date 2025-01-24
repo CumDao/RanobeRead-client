@@ -40,7 +40,12 @@ const ThemeChanger = ({ isRenderAsIcon = false }: ThemeChangerProps) => {
   }
 
   return (
-    <IconButton className={classes.hideOnMobile} color="inherit" onClick={toggleColorMode}>
+    <IconButton
+      className={classes.hideOnMobile}
+      color="inherit"
+      onClick={toggleColorMode}
+      aria-label="Change theme"
+    >
       {getIcon}
     </IconButton>
   );
