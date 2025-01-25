@@ -11,7 +11,12 @@ const RanobeCard = ({ id, name, rating, image, description, status, tags }: Rano
     <>
       <Card className={classes.card} key={id}>
         <div className={classes.imageContainer}>
-          <CardMedia className={classes.image} component="img" image={image} alt={name} />
+          <CardMedia
+            className={classes.image}
+            component="img"
+            image={`${import.meta.env.VITE_API_URL}${image}`}
+            alt={name}
+          />
           {!isMobile && (
             <div
               className={classes.ratingBox}

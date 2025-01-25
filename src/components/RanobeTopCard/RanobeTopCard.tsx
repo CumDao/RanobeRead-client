@@ -18,7 +18,7 @@ const RanobeTopCard = ({ name, rating, image }: RanobeTopCardProps) => {
         <CardMedia
           className={classes.image}
           component="img"
-          image={image}
+          image={`${import.meta.env.VITE_API_URL}${image}`}
           alt={name}
           draggable={false}
           onDrag={handleDragStart}
