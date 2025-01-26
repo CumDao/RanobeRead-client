@@ -1,21 +1,20 @@
 import { Box, Divider, Skeleton, Typography, Breadcrumbs as BreadcrumbsMUI } from '@mui/material';
-import { useAppSelector } from '../../hooks/redux';
-import { selectChapterData, selectChapterLoading } from '../../redux/selectors/getChapter';
 import classes from './ChapterPage.module.css';
-import { formatDate } from '../../utils/dateUtils';
+import { formatDate } from '../../helpers/dateUtils';
 import HomeIcon from '@mui/icons-material/Home';
 import MenuBookIcon from '@mui/icons-material/MenuBook';
 import Breadcrumbs, { BreadcrumbItem } from '../../components/Breadcrumbs/Breadcrumbs';
 import clsx from 'clsx';
 import PageSwitcher from '../../components/PageSwitcher';
 import Comments from '../../components/Comments';
+import { useChapter } from '../../store/chapter';
 
 const animation = 'wave';
 const skeletons = Array.from({ length: 20 }, (_, i) => <Skeleton key={i} animation={animation} />);
 
 const ChapterPage = () => {
-  const chapter = useAppSelector(selectChapterData);
-  const isLoading = useAppSelector(selectChapterLoading);
+  const chapter = useChapter.use.chapter();
+  const isLoading = useChapter.use.isLoading();
 
   if (isLoading || !chapter) {
     return (

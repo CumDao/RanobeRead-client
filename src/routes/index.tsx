@@ -1,13 +1,13 @@
 import { createBrowserRouter } from 'react-router-dom';
 import MainPage from '../pages/MainPage';
-import { store } from '../redux/store';
 import NotFound from '../pages/NotFoundPage';
-import { fetchTopRanobes } from '../redux/middleware/TopRanobesThunk';
-import { fetchRanobes } from '../redux/middleware/ListRanobesThunk';
 import RanobeDetailPage from '../pages/RanobeDetailPage';
 import { MainLayout, ReadLayout } from './layouts';
 import ChapterPage from '../pages/ChapterPage';
-import { fetchChapter } from '../redux/middleware/ChapterThunk';
+import { setHistory } from '../helpers/storageHistory';
+import { useChapter } from '../store/chapter';
+import { useLastRanobes } from '../store/lastRanobes';
+import { useTopRanobes } from '../store/topRanobes';
 
 const routes = createBrowserRouter([
   {
@@ -18,8 +18,8 @@ const routes = createBrowserRouter([
         path: '/',
         element: <MainPage />,
         loader: async () => {
-          store.dispatch(fetchTopRanobes());
-          store.dispatch(fetchRanobes());
+          useLastRanobes.getState().fetchLastRanobes();
+          useTopRanobes.getState().fetchTopRanobes();
         },
       },
       {
@@ -40,12 +40,14 @@ const routes = createBrowserRouter([
         loader: async ({ params }) => {
           const { id, chapterNumber } = params;
           if (id && (chapterNumber || chapterNumber === '0')) {
-            store.dispatch(
-              fetchChapter({
-                ranobeId: id,
-                chapterNumber: chapterNumber,
-              }),
-            );
+            setHistory({
+              ranobeId: id,
+              chapterNumber: chapterNumber,
+            });
+            useChapter.getState().fetchChapter({
+              ranobeId: id,
+              chapterNumber: chapterNumber,
+            });
           }
         },
       },

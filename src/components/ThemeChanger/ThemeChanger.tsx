@@ -1,5 +1,5 @@
 import { IconButton, useColorScheme } from '@mui/material';
-import { getSettings, setSettings } from '../../helpers/storage';
+import { getSettings, setSettings } from '../../helpers/storageSettings';
 import { useCallback, useEffect, useMemo } from 'react';
 import LightModeIcon from '@mui/icons-material/LightMode';
 import DarkModeIcon from '@mui/icons-material/DarkMode';

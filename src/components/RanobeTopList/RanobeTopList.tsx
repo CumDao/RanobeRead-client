@@ -1,5 +1,3 @@
-import { useAppSelector } from '../../hooks/redux';
-import { selectTopRanobesData, selectTopRanobesLoading } from '../../redux/selectors/getTopRanobes';
 import RanobeTopCard from '../RanobeTopCard';
 import classes from './RanobeTopList.module.css';
 import Skeletons from '../Skeletons';
@@ -10,6 +8,7 @@ import NavigateNextIcon from '@mui/icons-material/NavigateNext';
 import CardLink from '../CardLink';
 import { RefObject, useRef } from 'react';
 import clsx from 'clsx';
+import { useTopRanobes } from '../../store/topRanobes';
 
 interface ArrowProps {
   scrollContainer: RefObject<HTMLDivElement | null>;
@@ -60,8 +59,8 @@ const RightArrow = ({ scrollContainer }: ArrowProps) => {
 };
 
 const RanobeTopList = () => {
-  const topRanobesData = useAppSelector(selectTopRanobesData);
-  const isLoading = useAppSelector(selectTopRanobesLoading);
+  const topRanobesData = useTopRanobes.use.ranobes();
+  const isLoading = useTopRanobes.use.isLoading();
 
   const isListReady = !isLoading && topRanobesData.length;
 
