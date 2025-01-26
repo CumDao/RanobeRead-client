@@ -1,3 +1,45 @@
-.xd {
+.mainContainer {
+  display: flex;
+  flex-direction: column;
+  padding: 16px;
+  gap: 16px;
+  background-color: var(--mui-palette-primary-main);
+}
+
+.chapterTitle {
+  font-weight: bold;
   color: var(--mui-palette-text-primary);
+}
+
+.updatedAt {
+  font-size: 0.875rem;
+  color: var(--mui-palette-text-primary);
+}
+
+.chapterText {
+  line-height: 1.6;
+  white-space: pre-wrap;
+  color: var(--mui-palette-text-primary);
+}
+
+.navigation {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 24px;
+}
+
+.loaderContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  gap: 16px;
+}
+
+.errorContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
 }

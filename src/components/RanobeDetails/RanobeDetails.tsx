@@ -8,7 +8,7 @@ interface RanobeDetailsProps {
 const RanobeDetails = ({ id }: RanobeDetailsProps) => {
   const navigate = useNavigate();
   const handleNavigation = () => {
-    navigate(`/chapters/${id}/${1}`);
+    navigate(`/chapters/${id}/${0}`);
   };
 
   return (

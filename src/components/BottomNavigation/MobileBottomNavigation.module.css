@@ -6,6 +6,11 @@
   z-index: 10;
 }
 
+.logoLink {
+  text-decoration: none;
+  color: inherit;
+}
+
 @media (min-width: 960px) {
   .bottomNav.bottomNav {
     display: none;
