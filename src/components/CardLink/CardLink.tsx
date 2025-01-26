@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import classes from './CardLink.module.css';
 
 interface CardLink {
-  id: number;
+  id: string;
   children: ReactNode;
 }
 

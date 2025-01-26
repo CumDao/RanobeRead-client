@@ -5,7 +5,8 @@ import NotFound from '../pages/NotFoundPage';
 import { fetchTopRanobes } from '../redux/middleware/TopRanobesThunk';
 import { fetchRanobes } from '../redux/middleware/ListRanobesThunk';
 import RanobeDetailPage from '../pages/RanobeDetailPage';
-import { MainLayout } from './layouts';
+import { MainLayout, ReadLayout } from './layouts';
+import ChapterPage from '../pages/ChapterPage';
 
 const routes = createBrowserRouter([
   {
@@ -23,9 +24,20 @@ const routes = createBrowserRouter([
       {
         path: '/ranobe/:id',
         element: <RanobeDetailPage />,
+        loader: async () => {},
       },
     ],
     errorElement: <NotFound />,
+  },
+  {
+    path: '/chapters',
+    element: <ReadLayout />,
+    children: [
+      {
+        path: ':id/:chapterNumber',
+        element: <ChapterPage />,
+      },
+    ],
   },
 ]);
 

@@ -3,6 +3,7 @@ import { Ranobe } from '../../types/ranobe';
 import classes from './RanobeCard.module.css';
 import StarIcon from '@mui/icons-material/Star';
 import TagList from '../RanobeCardTags/RanobeCardTags';
+import { NavLink } from 'react-router-dom';
 
 const RanobeCard = ({ id, name, rating, image, description, status, tags }: Ranobe) => {
   const theme = useTheme();
@@ -11,12 +12,14 @@ const RanobeCard = ({ id, name, rating, image, description, status, tags }: Rano
     <>
       <Card className={classes.card} key={id}>
         <div className={classes.imageContainer}>
-          <CardMedia
-            className={classes.image}
-            component="img"
-            image={`${import.meta.env.VITE_API_URL}${image}`}
-            alt={name}
-          />
+          <NavLink to={`/ranobe/${id}`}>
+            <CardMedia
+              className={classes.image}
+              component="img"
+              image={`${import.meta.env.VITE_API_URL}${image}`}
+              alt={name}
+            />
+          </NavLink>
           {!isMobile && (
             <div
               className={classes.ratingBox}
@@ -33,7 +36,9 @@ const RanobeCard = ({ id, name, rating, image, description, status, tags }: Rano
         <CardContent className={classes.contentRight}>
           <div>
             <Typography className={classes.name} variant="subtitle2">
-              {name}
+              <NavLink to={`/ranobe/${id}`} className={classes.nameLink}>
+                {name}
+              </NavLink>
             </Typography>
             <Typography className={classes.description}>{description}</Typography>
             <div className={classes.tags}>
