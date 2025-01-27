@@ -1,3 +1,41 @@
-.xd {
+.mainContainer {
+  display: flex;
+  flex-direction: column;
+  margin: 30px;
+  padding: 16px 16px 50px;
+  gap: 16px;
+  border-radius: 16px;
+}
+
+.chapterTitle.chapterTitle {
+  font-size: 1.5rem;
+  font-weight: bold;
   color: var(--mui-palette-text-primary);
+}
+
+.updatedAt {
+  font-size: 0.875rem;
+  color: var(--mui-palette-text-primary);
+}
+
+.chapterText {
+  line-height: 1.6;
+  white-space: pre-wrap;
+  color: var(--mui-palette-text-primary);
+}
+
+.breadcrumbLoad {
+  display: flex;
+
+  svg {
+    margin-right: 5px;
+  }
+}
+
+.loadBase {
+  display: flex;
+
+  span {
+    margin-left: 10px;
+  }
 }

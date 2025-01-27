@@ -5,13 +5,24 @@ import { useState } from 'react';
 import Logo from '../Logo';
 import ThemeChanger from '../ThemeChanger';
 import Drawer from '../Drawer';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 const MobileBottomNavigation = () => {
   const theme = useTheme();
-
+  const location = useLocation();
+  const navigate = useNavigate();
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
+
   const handleOpen = () => setIsDrawerOpen(true);
   const handleClose = () => setIsDrawerOpen(false);
+
+  const handleLogoClick = () => {
+    if (location.pathname === '/') {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    } else {
+      navigate('/');
+    }
+  };
 
   return (
     <>
@@ -29,7 +40,11 @@ const MobileBottomNavigation = () => {
         }}
       >
         <BottomNavigationAction label="Тема" icon={<ThemeChanger isRenderAsIcon />} />
-        <BottomNavigationAction label="" icon={<Logo fontSize="large" />} />
+        <BottomNavigationAction
+          label=""
+          onClick={handleLogoClick}
+          icon={<Logo fontSize="large" />}
+        />
         <BottomNavigationAction label="Меню" icon={<MenuIcon />} onClick={handleOpen} />
       </BottomNavigation>
       <Drawer isDrawerOpen={isDrawerOpen} handleOpen={handleOpen} handleClose={handleClose}>

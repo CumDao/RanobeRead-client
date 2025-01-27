@@ -1,0 +1,20 @@
+.switchContainer.switchContainer {
+  width: 100%;
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 15px 0;
+}
+
+.prevButton.prevButton {
+  position: absolute;
+  left: 0;
+  cursor: pointer;
+}
+
+.nextButton.nextButton {
+  position: absolute;
+  right: 0;
+  cursor: pointer;
+}

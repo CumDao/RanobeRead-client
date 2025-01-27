@@ -7,6 +7,7 @@ import { fetchRanobes } from '../redux/middleware/ListRanobesThunk';
 import RanobeDetailPage from '../pages/RanobeDetailPage';
 import { MainLayout, ReadLayout } from './layouts';
 import ChapterPage from '../pages/ChapterPage';
+import { fetchChapter } from '../redux/middleware/ChapterThunk';
 
 const routes = createBrowserRouter([
   {
@@ -36,8 +37,20 @@ const routes = createBrowserRouter([
       {
         path: ':id/:chapterNumber',
         element: <ChapterPage />,
+        loader: async ({ params }) => {
+          const { id, chapterNumber } = params;
+          if (id && (chapterNumber || chapterNumber === '0')) {
+            store.dispatch(
+              fetchChapter({
+                ranobeId: id,
+                chapterNumber: chapterNumber,
+              }),
+            );
+          }
+        },
       },
     ],
+    errorElement: <NotFound />,
   },
 ]);
 
