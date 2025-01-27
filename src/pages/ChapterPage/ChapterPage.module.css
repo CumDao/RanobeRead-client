@@ -1,12 +1,14 @@
 .mainContainer {
   display: flex;
   flex-direction: column;
-  padding: 16px;
+  margin: 30px;
+  padding: 16px 16px 50px;
   gap: 16px;
-  background-color: var(--mui-palette-primary-main);
+  border-radius: 16px;
 }
 
-.chapterTitle {
+.chapterTitle.chapterTitle {
+  font-size: 1.5rem;
   font-weight: bold;
   color: var(--mui-palette-text-primary);
 }
@@ -22,24 +24,18 @@
   color: var(--mui-palette-text-primary);
 }
 
-.navigation {
+.breadcrumbLoad {
   display: flex;
-  justify-content: space-between;
-  margin-top: 24px;
+
+  svg {
+    margin-right: 5px;
+  }
 }
 
-.loaderContainer {
+.loadBase {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  height: 100vh;
-  gap: 16px;
-}
 
-.errorContainer {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 100vh;
+  span {
+    margin-left: 10px;
+  }
 }

@@ -21,12 +21,13 @@ export const getChapterSlice = createSlice({
   extraReducers(builder) {
     builder
       .addCase(fetchChapter.pending, (state) => {
+        state.chapter = null;
         state.isLoading = true;
         state.error = null;
       })
       .addCase(fetchChapter.fulfilled, (state, action: PayloadAction<ChapterResponce>) => {
-        state.isLoading = false;
         state.chapter = action.payload;
+        state.isLoading = false;
       })
       .addCase(fetchChapter.rejected, (state, action) => {
         state.isLoading = false;

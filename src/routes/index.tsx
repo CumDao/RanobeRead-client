@@ -39,21 +39,18 @@ const routes = createBrowserRouter([
         element: <ChapterPage />,
         loader: async ({ params }) => {
           const { id, chapterNumber } = params;
-          if (!id) {
-            throw new Error('Ranobe ID is required');
+          if (id && (chapterNumber || chapterNumber === '0')) {
+            store.dispatch(
+              fetchChapter({
+                ranobeId: id,
+                chapterNumber: chapterNumber,
+              }),
+            );
           }
-          if (!chapterNumber && chapterNumber !== '0') {
-            throw new Error('Chapter number is required');
-          }
-          store.dispatch(
-            fetchChapter({
-              ranobeId: id,
-              chapterNumber: chapterNumber,
-            }),
-          );
         },
       },
     ],
+    errorElement: <NotFound />,
   },
 ]);
 
