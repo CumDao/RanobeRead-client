@@ -34,11 +34,9 @@ const ChapterPage = () => {
           </div>
         </BreadcrumbsMUI>
         <Divider orientation="horizontal" />
-
         <Typography variant="h4" className={classes.chapterTitle}>
           <Skeleton width="20%" animation={animation} />
         </Typography>
-
         <Typography
           variant="subtitle1"
           color="textSecondary"
@@ -46,7 +44,6 @@ const ChapterPage = () => {
         >
           Последнее обновление: <Skeleton width="10%" animation={animation} />
         </Typography>
-
         <Typography variant="body1" className={classes.chapterText}>
           {skeletons.map((skeleton) => skeleton)}
         </Typography>
@@ -87,14 +84,15 @@ const ChapterPage = () => {
       <Typography variant="h4" className={classes.chapterTitle}>
         {`${chapter.chapterName}`}
       </Typography>
-      <Typography variant="subtitle1" color="textSecondary" className={classes.updatedAt}>
-        Последнее обновление: {formatDate(chapter.updatedAt)}
-      </Typography>
       <Typography variant="body1" className={classes.chapterText}>
         {chapter.chapterText}
       </Typography>
       <Divider orientation="horizontal" />
       {chapterSwitch}
+      <Divider orientation="horizontal" />
+      <Typography variant="subtitle1" color="textSecondary" className={classes.updatedAt}>
+        Последнее обновление: {formatDate(chapter.updatedAt)}
+      </Typography>
       <Divider orientation="horizontal" />
       <Comments />
     </Box>

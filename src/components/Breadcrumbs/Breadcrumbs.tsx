@@ -1,4 +1,4 @@
-import { Box, Breadcrumbs as BreadcrumbsMUI, Typography } from '@mui/material';
+import { Box, Breadcrumbs as BreadcrumbsMUI, Typography, useMediaQuery } from '@mui/material';
 import classes from './Breadcrumbs.module.css';
 import { NavLink } from 'react-router-dom';
 import { ReactNode } from 'react';
@@ -14,9 +14,10 @@ interface BreadcrumbsProps {
 }
 
 const Breadcrumbs = ({ items }: BreadcrumbsProps) => {
+  const isMobile = useMediaQuery('(max-width:960px)');
   return (
     <Box className={classes.navigation}>
-      <BreadcrumbsMUI separator="»">
+      <BreadcrumbsMUI separator={isMobile ? '▼' : '»'} className={classes.breadcrumbs}>
         {items.map((item, index) =>
           item.to ? (
             <NavLink key={index} to={item.to}>
