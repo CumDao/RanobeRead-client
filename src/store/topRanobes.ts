@@ -11,7 +11,7 @@ interface GetTopRanobesState {
   fetchTopRanobes: () => void;
 }
 
-const useTopRanobesStore = create<GetTopRanobesState>((set) => ({
+const useTopRanobesStore = create<GetTopRanobesState>()((set) => ({
   ranobes: [],
   isLoading: false,
   error: null,

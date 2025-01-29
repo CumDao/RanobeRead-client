@@ -4,10 +4,10 @@ import NotFound from '../pages/NotFoundPage';
 import RanobeDetailPage from '../pages/RanobeDetailPage';
 import { MainLayout, ReadLayout } from './layouts';
 import ChapterPage from '../pages/ChapterPage';
-import { setHistory } from '../helpers/storageHistory';
 import { useChapter } from '../store/chapter';
 import { useLastRanobes } from '../store/lastRanobes';
 import { useTopRanobes } from '../store/topRanobes';
+import { useChapterHistory } from '../store/chaptersHistory';
 
 const routes = createBrowserRouter([
   {
@@ -40,7 +40,8 @@ const routes = createBrowserRouter([
         loader: async ({ params }) => {
           const { id, chapterNumber } = params;
           if (id && (chapterNumber || chapterNumber === '0')) {
-            setHistory({
+            console.log(useChapterHistory.getState().chapters);
+            useChapterHistory.getState().saveNewChapter({
               ranobeId: id,
               chapterNumber: chapterNumber,
             });

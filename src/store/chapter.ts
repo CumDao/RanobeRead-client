@@ -11,7 +11,7 @@ interface GetChapterState {
   fetchChapter: (chapterParams: GetChapterRequest) => void;
 }
 
-const useChapterStore = create<GetChapterState>((set) => ({
+const useChapterStore = create<GetChapterState>()((set) => ({
   chapter: null,
   isLoading: false,
   error: null,

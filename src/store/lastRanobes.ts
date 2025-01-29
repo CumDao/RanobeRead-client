@@ -11,7 +11,7 @@ interface GetLastRanobesState {
   fetchLastRanobes: () => void;
 }
 
-const useLastRanobesStore = create<GetLastRanobesState>((set) => ({
+const useLastRanobesStore = create<GetLastRanobesState>()((set) => ({
   ranobes: [],
   isLoading: false,
   error: null,
