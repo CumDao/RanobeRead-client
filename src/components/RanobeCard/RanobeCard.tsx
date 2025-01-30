@@ -18,6 +18,8 @@ const RanobeCard = ({ id, name, rating, image, description, status, tags }: Rano
               component="img"
               image={`${import.meta.env.VITE_API_URL}${image}`}
               alt={name}
+              loading="lazy"
+              draggable={false}
             />
           </NavLink>
           {!isMobile && (

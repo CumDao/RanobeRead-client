@@ -20,6 +20,7 @@ const RanobeTopCard = ({ name, rating, image }: RanobeTopCardProps) => {
           component="img"
           image={`${import.meta.env.VITE_API_URL}${image}`}
           alt={name}
+          loading="lazy"
           draggable={false}
           onDrag={handleDragStart}
         />
