@@ -2,7 +2,7 @@ import { BottomNavigation, BottomNavigationAction, useTheme } from '@mui/materia
 import MenuIcon from '@mui/icons-material/Menu';
 import classes from './MobileBottomNavigation.module.css';
 import { useState } from 'react';
-import Logo from '../Logo';
+import Logo from '../../components-ui/Logo';
 import ThemeChanger from '../ThemeChanger';
 import Drawer from '../Drawer';
 import { useLocation, useNavigate } from 'react-router-dom';

@@ -1,7 +1,6 @@
 .card {
-  width: 135px;
-  min-width: 135px;
-  height: 235px;
+  width: 380px;
+  height: 300px;
   border-radius: 10px;
   box-shadow: 0 4px 8px var(--shadow-color);
   overflow: hidden;
@@ -9,27 +8,20 @@
     transform 0.3s,
     box-shadow 0.3s;
   display: flex;
-  flex-direction: column;
+  flex-wrap: wrap;
 }
 
 .imageContainer {
   position: relative;
-  width: 100%;
-  padding-top: 133.33%;
-  overflow: hidden;
+  width: 50%;
 }
 
-.image {
+.image.image {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  object-fit: cover;
-  -webkit-user-drag: none;
-  -moz-user-drag: none;
-  -ms-user-drag: none;
-  pointer-events: none;
 }
 
 .ratingBox {
@@ -52,17 +44,41 @@
   font-weight: bold;
 }
 
-.bottom.bottom {
-  margin-top: 5px;
+.contentRight {
+  width: 40%;
   flex-grow: 1;
   display: flex;
   flex-direction: column;
-  align-items: start;
-  padding: 0;
+  justify-content: space-between;
+}
+
+.status.status {
+  position: absolute;
+  width: 150px;
+}
+
+.tags.tags {
+  margin-top: 10px;
+  height: 84px;
+  overflow: hidden;
+  display: flex;
+  flex-flow: row wrap;
+  gap: 5px;
+}
+
+.description.description {
+  margin-top: 5px;
+  font-size: small;
+  display: -webkit-box;
+  -webkit-line-clamp: 6;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 100%;
 }
 
 .name {
-  font-size: 14px;
+  font-size: 12px;
   font-weight: bold;
   text-align: center;
   display: -webkit-box;
@@ -71,6 +87,17 @@
   overflow: hidden;
   text-overflow: ellipsis;
   width: 100%;
+}
+
+.nameLink {
+  color: inherit;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+.nameLink:hover {
+  color: var(--mui-palette-success-light);
 }
 
 @media (min-width: 960px) {
@@ -93,21 +120,5 @@
   .card:hover .ratingBox {
     opacity: 1;
     visibility: flex;
-  }
-}
-
-@media (max-width: 960px) {
-  .card {
-    width: 115px;
-    min-width: 115px;
-    height: 205px;
-  }
-}
-
-@media (max-width: 480px) {
-  .card {
-    width: 95px;
-    min-width: 95px;
-    height: 180px;
   }
 }

@@ -1,2 +1,2 @@
-export const top = 'Лучшие';
-export const list = 'Последнее';
+export const TITLE_TOP = 'Лучшие';
+export const TITLE_LAST = 'Последнее';

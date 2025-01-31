@@ -1,0 +1,41 @@
+.arrow.arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 2;
+}
+
+.arrow.leftArrow {
+  left: -5px;
+}
+
+.arrow.rightArrow {
+  right: -5px;
+}
+
+.listWrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.listContainer {
+  overflow-x: auto;
+  padding: 0 10px;
+  scroll-behavior: smooth;
+}
+
+.listContainer::-webkit-scrollbar {
+  display: none;
+}
+
+.cardWrapper {
+  display: inline-flex;
+  gap: 20px;
+}
+
+@media (max-width: 960px) {
+  .arrow {
+    display: none;
+  }
+}

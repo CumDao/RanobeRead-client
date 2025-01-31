@@ -1,53 +1,19 @@
-import { Box, Divider, Skeleton, Typography, Breadcrumbs as BreadcrumbsMUI } from '@mui/material';
+import { Box, Divider, Typography } from '@mui/material';
 import classes from './ChapterPage.module.css';
 import { formatDate } from '../../helpers/dateUtils';
 import HomeIcon from '@mui/icons-material/Home';
 import MenuBookIcon from '@mui/icons-material/MenuBook';
-import Breadcrumbs, { BreadcrumbItem } from '../../components/Breadcrumbs/Breadcrumbs';
-import clsx from 'clsx';
+import Breadcrumbs, { BreadcrumbItem } from '../../components-ui/Breadcrumbs/Breadcrumbs';
 import PageSwitcher from '../../components/PageSwitcher';
 import Comments from '../../components/Comments';
 import { useChapter } from '../../store/chapter';
-
-const animation = 'wave';
-const skeletons = Array.from({ length: 20 }, (_, i) => <Skeleton key={i} animation={animation} />);
 
 const ChapterPage = () => {
   const chapter = useChapter.use.chapter();
   const isLoading = useChapter.use.isLoading();
 
   if (isLoading || !chapter) {
-    return (
-      <Box className={classes.mainContainer}>
-        <BreadcrumbsMUI separator="»">
-          <div className={classes.breadcrumbLoad}>
-            <HomeIcon />
-            <Skeleton animation={animation} width={96} />
-          </div>
-          <div className={classes.breadcrumbLoad}>
-            <MenuBookIcon />
-            <Skeleton animation={animation} width={40} />
-          </div>
-          <div className={classes.breadcrumbLoad}>
-            <Skeleton animation={animation} width={97} />
-          </div>
-        </BreadcrumbsMUI>
-        <Divider orientation="horizontal" />
-        <Typography variant="h4" className={classes.chapterTitle}>
-          <Skeleton width="20%" animation={animation} />
-        </Typography>
-        <Typography
-          variant="subtitle1"
-          color="textSecondary"
-          className={clsx(classes.updatedAt, classes.loadBase)}
-        >
-          Последнее обновление: <Skeleton width="10%" animation={animation} />
-        </Typography>
-        <Typography variant="body1" className={classes.chapterText}>
-          {skeletons.map((skeleton) => skeleton)}
-        </Typography>
-      </Box>
-    );
+    return <Box className={classes.mainContainer}>{}</Box>;
   }
 
   const breadcrumbs: BreadcrumbItem[] = [

@@ -2,7 +2,7 @@ import { AppBar, Toolbar, Typography } from '@mui/material';
 import classes from './Header.module.css';
 import Search from '../Search';
 import ThemeChanger from '../ThemeChanger';
-import Logo from '../Logo';
+import Logo from '../../components-ui/Logo';
 import clsx from 'clsx';
 import { NavLink } from 'react-router-dom';
 

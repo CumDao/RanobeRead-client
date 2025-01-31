@@ -40,7 +40,6 @@ const routes = createBrowserRouter([
         loader: async ({ params }) => {
           const { id, chapterNumber } = params;
           if (id && (chapterNumber || chapterNumber === '0')) {
-            console.log(useChapterHistory.getState().chapters);
             useChapterHistory.getState().saveNewChapter({
               ranobeId: id,
               chapterNumber: chapterNumber,

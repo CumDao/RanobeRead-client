@@ -18,8 +18,18 @@
   }
 }
 
+.breadcrumbs {
+  list-style-type: none;
+  display: flex;
+}
+
+.separator {
+  margin: 0 8px;
+}
+
 @media (max-width: 960px) {
-  .breadcrumbs ol {
+  .breadcrumbs {
     flex-direction: column;
+    align-items: center;
   }
 }

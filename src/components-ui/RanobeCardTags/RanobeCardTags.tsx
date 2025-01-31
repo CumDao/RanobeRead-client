@@ -7,7 +7,7 @@ interface TagListProps {
 
 const TagList = ({ tags }: TagListProps) => {
   return tags.map((tag) => (
-    <Chip sx={{ padding: 0 }} label={tag.name} color="primary" size="small" />
+    <Chip key={tag.id} sx={{ padding: 0 }} label={tag.name} color="primary" size="small" />
   ));
 };
 

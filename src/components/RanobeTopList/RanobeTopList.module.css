@@ -1,68 +1,6 @@
-.skeletonsList {
-  overflow-x: auto;
-}
-
-.skeletonsList::-webkit-scrollbar {
-  display: none;
-}
-
-.skeletonsWrapper {
-  display: inline-flex;
-  gap: 10px;
-}
-
 .title {
   margin: 0 10px;
   font-size: 18px;
   font-weight: bold;
   margin-bottom: 10px;
-}
-
-.empty {
-  width: 100%;
-  font-weight: 900;
-  font-size: 5vw;
-  text-align: center;
-}
-
-.arrow.arrow {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  z-index: 2;
-}
-
-.arrow.leftArrow {
-  left: -5px;
-}
-
-.arrow.rightArrow {
-  right: -5px;
-}
-
-.listWrapper {
-  position: relative;
-  display: flex;
-  align-items: center;
-}
-
-.listContainer {
-  overflow-x: auto;
-  padding: 0 10px;
-  scroll-behavior: smooth;
-}
-
-.listContainer::-webkit-scrollbar {
-  display: none;
-}
-
-.cardWrapper {
-  display: inline-flex;
-  gap: 20px;
-}
-
-@media (max-width: 960px) {
-  .arrow {
-    display: none;
-  }
 }

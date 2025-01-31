@@ -1,6 +1,7 @@
 .card {
-  width: 380px;
-  height: 300px;
+  width: 135px;
+  min-width: 135px;
+  height: 235px;
   border-radius: 10px;
   box-shadow: 0 4px 8px var(--shadow-color);
   overflow: hidden;
@@ -8,12 +9,14 @@
     transform 0.3s,
     box-shadow 0.3s;
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: column;
 }
 
-.imageContainer {
+.imageContainer.imageContainer {
   position: relative;
-  width: 50%;
+  width: 100%;
+  height: calc(235px * 0.77);
+  overflow: hidden;
 }
 
 .image {
@@ -22,6 +25,11 @@
   left: 0;
   width: 100%;
   height: 100%;
+  object-fit: cover;
+  -webkit-user-drag: none;
+  -moz-user-drag: none;
+  -ms-user-drag: none;
+  pointer-events: none;
 }
 
 .ratingBox {
@@ -44,41 +52,17 @@
   font-weight: bold;
 }
 
-.contentRight {
-  width: 40%;
+.bottom.bottom {
+  margin-top: 5px;
   flex-grow: 1;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-}
-
-.status.status {
-  position: absolute;
-}
-
-.tags.tags {
-  margin-top: 10px;
-  height: 84px;
-  overflow: hidden;
-  display: flex;
-  flex-flow: row wrap;
-  gap: 5px;
-}
-
-.description.description {
-  margin-top: 5px;
-  font-size: small;
-  display: -webkit-box;
-  -webkit-line-clamp: 6;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  width: 100%;
+  align-items: start;
+  padding: 0;
 }
 
 .name {
-  font-size: 12px;
-  font-weight: bold;
+  font-size: 14px;
   text-align: center;
   display: -webkit-box;
   -webkit-line-clamp: 2;
@@ -91,7 +75,6 @@
 .nameLink {
   color: inherit;
   text-decoration: none;
-  font-weight: bold;
   transition: color 0.3s ease;
 }
 
@@ -119,5 +102,29 @@
   .card:hover .ratingBox {
     opacity: 1;
     visibility: flex;
+  }
+}
+
+@media (max-width: 960px) {
+  .card {
+    width: 115px;
+    min-width: 115px;
+    height: 205px;
+
+    .imageContainer {
+      height: calc(205px * 0.75);
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .card {
+    width: 95px;
+    min-width: 95px;
+    height: 180px;
+
+    .imageContainer {
+      height: calc(180px * 0.73);
+    }
   }
 }
