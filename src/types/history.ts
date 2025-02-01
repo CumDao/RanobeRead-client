@@ -1,4 +1,6 @@
 export interface ChapterHistory {
   ranobeId: string;
-  chapterNumber: string;
+  chapterNumber: number;
+  ranobeName: string;
+  image: string;
 }

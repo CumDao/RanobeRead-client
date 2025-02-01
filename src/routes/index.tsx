@@ -7,7 +7,6 @@ import ChapterPage from '../pages/ChapterPage';
 import { useChapter } from '../store/chapter';
 import { useLastRanobes } from '../store/lastRanobes';
 import { useTopRanobes } from '../store/topRanobes';
-import { useChapterHistory } from '../store/chaptersHistory';
 
 const routes = createBrowserRouter([
   {
@@ -40,10 +39,6 @@ const routes = createBrowserRouter([
         loader: async ({ params }) => {
           const { id, chapterNumber } = params;
           if (id && (chapterNumber || chapterNumber === '0')) {
-            useChapterHistory.getState().saveNewChapter({
-              ranobeId: id,
-              chapterNumber: chapterNumber,
-            });
             useChapter.getState().fetchChapter({
               ranobeId: id,
               chapterNumber: chapterNumber,

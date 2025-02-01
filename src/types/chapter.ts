@@ -16,4 +16,5 @@ export interface ChapterResponce {
 interface ChapterRanobeResponce {
   id: string;
   name: string;
+  image: string;
 }

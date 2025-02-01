@@ -4,7 +4,7 @@ import classes from './MobileBottomNavigation.module.css';
 import { useState } from 'react';
 import Logo from '../../components-ui/Logo';
 import ThemeChanger from '../ThemeChanger';
-import Drawer from '../Drawer';
+import Drawer from '../../components-ui/Drawer';
 import { useLocation, useNavigate } from 'react-router-dom';
 
 const MobileBottomNavigation = () => {

@@ -7,14 +7,23 @@ import Breadcrumbs, { BreadcrumbItem } from '../../components-ui/Breadcrumbs/Bre
 import PageSwitcher from '../../components/PageSwitcher';
 import Comments from '../../components/Comments';
 import { useChapter } from '../../store/chapter';
+import { useChapterHistory } from '../../store/chaptersHistory';
 
 const ChapterPage = () => {
   const chapter = useChapter.use.chapter();
   const isLoading = useChapter.use.isLoading();
+  const chapterHistorySave = useChapterHistory.use.saveNewChapter();
 
   if (isLoading || !chapter) {
     return <Box className={classes.mainContainer}>{}</Box>;
   }
+
+  chapterHistorySave({
+    ranobeName: chapter.ranobe.name,
+    chapterNumber: chapter.chapterNumber,
+    ranobeId: chapter.ranobe.id,
+    image: chapter.ranobe.image,
+  });
 
   const breadcrumbs: BreadcrumbItem[] = [
     {

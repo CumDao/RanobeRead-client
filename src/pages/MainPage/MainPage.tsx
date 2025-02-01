@@ -1,3 +1,4 @@
+import RanobeHistory from '../../components/RanobeHistory';
 import RanobeList from '../../components/RanobeList';
 import RanobeTopList from '../../components/RanobeTopList';
 import { useLastRanobes } from '../../store/lastRanobes';
@@ -15,6 +16,7 @@ const MainPage = () => {
   return (
     <div className={classes.mainContainer}>
       <RanobeTopList />
+      <RanobeHistory />
       <RanobeList />
     </div>
   );

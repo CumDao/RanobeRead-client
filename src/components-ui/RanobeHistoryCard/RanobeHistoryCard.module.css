@@ -1,0 +1,54 @@
+.card {
+  width: 250px;
+  height: 120px;
+  border-radius: 8px;
+  position: relative;
+  display: flex;
+  box-shadow: 0 4px 8px var(--shadow-color);
+}
+
+.imageContainer {
+  position: relative;
+  width: 50%;
+}
+
+.image.image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: auto;
+  height: 100%;
+  object-fit: contain;
+}
+
+.textContainer.textContainer {
+  padding-right: 22px;
+  padding-left: 0;
+  width: 65%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.title.title {
+  font-size: 12px;
+  font-weight: bold;
+  margin-bottom: 8px;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.deleteButton.deleteButton {
+  width: 25px;
+  height: 25px;
+  position: absolute;
+  top: 2px;
+  right: 2px;
+}
+
+.deleteButton:hover {
+  color: var(--mui-palette-error-dark);
+}
