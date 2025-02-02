@@ -20,8 +20,27 @@
 
 .chapterText {
   line-height: 1.6;
-  white-space: pre-wrap;
   color: var(--mui-palette-text-primary);
+
+  details {
+    width: fit-content;
+    margin: 10px 0;
+    transition: all 0.3s ease-in-out;
+  }
+
+  summary {
+    border: 1px dashed var(--mui-palette-info-main);
+    color: var(--mui-palette-info-main);
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    padding: 5px;
+    outline: none;
+  }
+  
+  details[open] summary {
+    display: none;
+  }
 }
 
 .breadcrumbLoad {

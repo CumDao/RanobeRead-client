@@ -26,5 +26,19 @@
       }
     ]
   },
+  "overrides": [
+    {
+      "files": ["src/**/*.module.css"],
+      "rules": {
+        "selector-class-pattern": "^[a-z][a-zA-Z0-9]+$"
+      }
+    },
+    {
+      "files": ["src/index.css"],
+      "rules": {
+        "selector-class-pattern": null
+      }
+    }
+  ],
   "defaultSeverity": "error"
 }

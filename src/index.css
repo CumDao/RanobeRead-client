@@ -23,3 +23,16 @@
   --tag-box-text-color: rgb(51 238 129);
 }
 
+.spoiler-cont::before {
+  content: "[";
+  color: var(--mui-palette-info-main);
+  font-weight: 900;
+  font-size: 20px;
+}
+
+.spoiler-cont::after {
+  content: "]";
+  color: var(--mui-palette-info-main);
+  font-weight: 900;
+  font-size: 20px;
+}

@@ -10,7 +10,7 @@ const RanobeDetails = ({ id }: RanobeDetailsProps) => {
   const chapterNumber = useChapterHistory.use.getChapterById()(id);
   const navigate = useNavigate();
   const handleNavigation = () => {
-    navigate(`/chapters/${id}/${chapterNumber ?? 0}`);
+    navigate(`/chapters/${id}/${chapterNumber ?? 1}`);
   };
 
   return (

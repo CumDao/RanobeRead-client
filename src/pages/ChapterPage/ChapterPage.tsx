@@ -3,6 +3,7 @@ import classes from './ChapterPage.module.css';
 import { formatDate } from '../../helpers/dateUtils';
 import HomeIcon from '@mui/icons-material/Home';
 import MenuBookIcon from '@mui/icons-material/MenuBook';
+import DOMPurify from 'dompurify';
 import Breadcrumbs, { BreadcrumbItem } from '../../components-ui/Breadcrumbs/Breadcrumbs';
 import PageSwitcher from '../../components/PageSwitcher';
 import Comments from '../../components/Comments';
@@ -58,9 +59,10 @@ const ChapterPage = () => {
       <Typography variant="h4" className={classes.chapterTitle}>
         {`${chapter.chapterName}`}
       </Typography>
-      <Typography variant="body1" className={classes.chapterText}>
-        {chapter.chapterText}
-      </Typography>
+      <Box
+        className={classes.chapterText}
+        dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(chapter.chapterText) }}
+      />
       <Divider orientation="horizontal" />
       {chapterSwitch}
       <Divider orientation="horizontal" />
