@@ -10,8 +10,8 @@ import {
 import { Ranobe } from '../../types/ranobe';
 import StarIcon from '@mui/icons-material/Star';
 import TagList from '../RanobeCardTags/RanobeCardTags';
-import { NavLink } from 'react-router-dom';
 import classes from './RanobeCard.module.css';
+import NavigateLink from '../NavigateLink';
 
 const animation = 'wave';
 
@@ -24,7 +24,7 @@ const RanobeCard = ({ id, name, rating, image, description, status, tags }: Rano
         <div className={classes.imageContainer}>
           {image ? (
             <>
-              <NavLink to={`/ranobe/${id}`}>
+              <NavigateLink to={`/ranobe/${id}`}>
                 <CardMedia
                   className={classes.image}
                   component="img"
@@ -33,7 +33,7 @@ const RanobeCard = ({ id, name, rating, image, description, status, tags }: Rano
                   loading="lazy"
                   draggable={false}
                 />
-              </NavLink>
+              </NavigateLink>
               {!isMobile && (
                 <div
                   className={classes.ratingBox}
@@ -54,9 +54,7 @@ const RanobeCard = ({ id, name, rating, image, description, status, tags }: Rano
           <div>
             <Typography className={classes.name} variant="subtitle2">
               {name ? (
-                <NavLink to={`/ranobe/${id}`} className={classes.nameLink}>
-                  {name}
-                </NavLink>
+                <NavigateLink to={`/ranobe/${id}`}>{name}</NavigateLink>
               ) : (
                 <Skeleton animation={animation} />
               )}

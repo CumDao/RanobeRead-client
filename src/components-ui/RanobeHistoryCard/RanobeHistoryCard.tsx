@@ -2,6 +2,7 @@ import { Card, CardContent, CardMedia, IconButton, Typography } from '@mui/mater
 import classes from './RanobeHistoryCard.module.css';
 import CloseIcon from '@mui/icons-material/Close';
 import { useChapterHistory } from '../../store/chaptersHistory';
+import NavigateLink from '../NavigateLink';
 
 interface RanobeHistoryCardProps {
   ranobeId: string;
@@ -23,20 +24,23 @@ const RanobeHistoryCard = ({
 
   return (
     <Card className={classes.card}>
-      <div className={classes.imageContainer}>
+      <NavigateLink to={`/ranobe/${ranobeId}`} className={classes.imageContainer}>
         <CardMedia
           component="img"
           alt={ranobeName}
           image={`${import.meta.env.VITE_API_URL}${image}`}
           className={classes.image}
+          loading="lazy"
         />
-      </div>
+      </NavigateLink>
       <CardContent className={classes.textContainer}>
         <Typography variant="h6" className={classes.title}>
-          {ranobeName}
+          <NavigateLink to={`/ranobe/${ranobeId}`}>{ranobeName}</NavigateLink>
         </Typography>
         <Typography variant="body2" color="textSecondary">
-          Глава: {chapterNumber}
+          <NavigateLink to={`/chapters/${ranobeId}/${chapterNumber}`}>
+            Глава: {chapterNumber}
+          </NavigateLink>
         </Typography>
         <IconButton onClick={handleRemove} className={classes.deleteButton}>
           <CloseIcon />

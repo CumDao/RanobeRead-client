@@ -72,16 +72,6 @@
   width: 100%;
 }
 
-.nameLink {
-  color: inherit;
-  text-decoration: none;
-  transition: color 0.3s ease;
-}
-
-.nameLink:hover {
-  color: var(--mui-palette-success-light);
-}
-
 @media (min-width: 960px) {
   .ratingBox {
     align-items: center;

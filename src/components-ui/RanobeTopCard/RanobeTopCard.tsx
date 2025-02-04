@@ -10,8 +10,8 @@ import {
 import StarIcon from '@mui/icons-material/Star';
 import { RanobeTop } from '../../types/ranobe';
 import { DragEvent } from 'react';
-import { NavLink } from 'react-router-dom';
 import classes from './RanobeTopCard.module.css';
+import NavigateLink from '../NavigateLink';
 
 interface RanobeTopCardProps extends RanobeTop {}
 
@@ -26,7 +26,7 @@ const RanobeTopCard = ({ id, name, rating, image }: RanobeTopCardProps) => {
   return (
     <Card className={classes.card}>
       {image ? (
-        <NavLink to={`/ranobe/${id}`}>
+        <NavigateLink to={`/ranobe/${id}`}>
           <div className={classes.imageContainer}>
             <CardMedia
               className={classes.image}
@@ -49,16 +49,14 @@ const RanobeTopCard = ({ id, name, rating, image }: RanobeTopCardProps) => {
               </div>
             )}
           </div>
-        </NavLink>
+        </NavigateLink>
       ) : (
         <Skeleton animation={animation} variant="rectangular" className={classes.imageContainer} />
       )}
       <CardContent className={classes.bottom}>
         <Typography className={classes.name} variant="subtitle2">
           {name ? (
-            <NavLink to={`/ranobe/${id}`} className={classes.nameLink}>
-              {name}
-            </NavLink>
+            <NavigateLink to={`/ranobe/${id}`}>{name}</NavigateLink>
           ) : (
             <Skeleton animation={animation} />
           )}
