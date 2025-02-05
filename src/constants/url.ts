@@ -1,3 +1,3 @@
-export const GET_RANOBE = '/ranobe';
+export const GET_RANOBE = '/ranobes';
 export const GET_TOP = '/top';
-export const GET_CHAPTER = '/chapter';
+export const GET_CHAPTER = '/chapters';

@@ -1,6 +1,6 @@
 import { Typography, useMediaQuery } from '@mui/material';
 import classes from './Breadcrumbs.module.css';
-import { NavLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { Fragment, ReactNode } from 'react';
 
 export interface BreadcrumbItem {
@@ -24,10 +24,10 @@ const Breadcrumbs = ({ items }: BreadcrumbsProps) => {
           <Fragment key={index}>
             <li key={index}>
               {item.to ? (
-                <NavLink to={item.to}>
+                <Link to={item.to}>
                   {item.icon}
                   {item.label}
-                </NavLink>
+                </Link>
               ) : (
                 <Typography>
                   {item.icon}

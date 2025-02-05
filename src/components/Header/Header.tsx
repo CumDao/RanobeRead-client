@@ -4,17 +4,17 @@ import Search from '../Search';
 import ThemeChanger from '../ThemeChanger';
 import Logo from '../../components-ui/Logo';
 import clsx from 'clsx';
-import { NavLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 const Header = () => {
   return (
     <>
       <AppBar position="fixed" className={classes.header}>
         <Toolbar className={classes.toolbar}>
-          <NavLink to="/" className={clsx(classes.hideOnMobile, classes.title)}>
+          <Link to="/" className={clsx(classes.hideOnMobile, classes.title)}>
             <Logo fontSize="medium" />
             <Typography variant="h6">RanobeRead</Typography>
-          </NavLink>
+          </Link>
           <div className={classes.searchBox}>
             <Search />
             <div className={classes.hideOnMobile}>

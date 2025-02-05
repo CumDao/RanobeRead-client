@@ -15,7 +15,7 @@ import NavigateLink from '../NavigateLink';
 
 const animation = 'wave';
 
-const RanobeCard = ({ id, name, rating, image, description, status, tags }: Ranobe) => {
+const RanobeCard = ({ id, nameFirst, rating, image, description, status, tags }: Ranobe) => {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
   return (
@@ -29,7 +29,7 @@ const RanobeCard = ({ id, name, rating, image, description, status, tags }: Rano
                   className={classes.image}
                   component="img"
                   image={`${import.meta.env.VITE_API_URL}${image}`}
-                  alt={name}
+                  alt={nameFirst}
                   loading="lazy"
                   draggable={false}
                 />
@@ -53,8 +53,8 @@ const RanobeCard = ({ id, name, rating, image, description, status, tags }: Rano
         <CardContent className={classes.contentRight}>
           <div>
             <Typography className={classes.name} variant="subtitle2">
-              {name ? (
-                <NavigateLink to={`/ranobe/${id}`}>{name}</NavigateLink>
+              {nameFirst ? (
+                <NavigateLink to={`/ranobe/${id}`}>{nameFirst}</NavigateLink>
               ) : (
                 <Skeleton animation={animation} />
               )}

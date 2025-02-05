@@ -1,6 +1,6 @@
 export interface RanobeTop {
   id: string;
-  name: string;
+  nameFirst: string;
   rating: number;
   image: string;
 }

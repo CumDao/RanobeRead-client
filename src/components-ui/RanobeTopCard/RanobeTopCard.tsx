@@ -17,7 +17,7 @@ interface RanobeTopCardProps extends RanobeTop {}
 
 const animation = 'wave';
 
-const RanobeTopCard = ({ id, name, rating, image }: RanobeTopCardProps) => {
+const RanobeTopCard = ({ id, nameFirst, rating, image }: RanobeTopCardProps) => {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
 
@@ -32,7 +32,7 @@ const RanobeTopCard = ({ id, name, rating, image }: RanobeTopCardProps) => {
               className={classes.image}
               component="img"
               image={`${import.meta.env.VITE_API_URL}${image}`}
-              alt={name}
+              alt={nameFirst}
               loading="lazy"
               draggable={false}
               onDrag={handleDragStart}
@@ -55,8 +55,8 @@ const RanobeTopCard = ({ id, name, rating, image }: RanobeTopCardProps) => {
       )}
       <CardContent className={classes.bottom}>
         <Typography className={classes.name} variant="subtitle2">
-          {name ? (
-            <NavigateLink to={`/ranobe/${id}`}>{name}</NavigateLink>
+          {nameFirst ? (
+            <NavigateLink to={`/ranobe/${id}`}>{nameFirst}</NavigateLink>
           ) : (
             <Skeleton animation={animation} />
           )}
