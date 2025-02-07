@@ -52,3 +52,12 @@
 .deleteButton:hover {
   color: var(--mui-palette-error-dark);
 }
+
+.progress {
+  display: block;
+  overflow: hidden;
+  border: none;
+  background-color: var(--mui-palette-info-main);
+  border-radius: 16px;
+  height: 8px;
+}

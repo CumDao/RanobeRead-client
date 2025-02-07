@@ -3,4 +3,5 @@ export interface ChapterHistory {
   chapterNumber: number;
   ranobeName: string;
   image: string;
+  progress: number;
 }

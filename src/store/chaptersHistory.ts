@@ -10,6 +10,7 @@ interface ChapterHistoryEntity {
   updatedAt: number;
   ranobeName: string;
   image: string;
+  progress: number;
 }
 
 interface ChaptersHistoryState {
@@ -18,6 +19,7 @@ interface ChaptersHistoryState {
   getChapterById: (ranobeId: string) => number | null;
   clearHistory: () => void;
   removeChapterById: (ranobeId: string) => void;
+  getProgress: (ranobeId: string) => number | null;
 }
 
 const useChapterHistoryStore = create<ChaptersHistoryState>()(
@@ -33,6 +35,7 @@ const useChapterHistoryStore = create<ChaptersHistoryState>()(
               updatedAt: Date.now(),
               ranobeName: chapter.ranobeName,
               image: chapter.image,
+              progress: chapter.progress,
             },
           };
           if (Object.entries(updatedChapters).length > MAX_HISTORY_ENTRIES) {
@@ -57,12 +60,13 @@ const useChapterHistoryStore = create<ChaptersHistoryState>()(
           return { chapters: updatedChapters };
         });
       },
+      getProgress: (ranobeId: string) => get().chapters[ranobeId]?.progress || null,
     }),
     {
       name: CHAPTERS_HISTORY,
-      version: 2,
+      version: 3,
       migrate: (persistedState, version) => {
-        if (version < 2) {
+        if (version < 3) {
           return { chapters: {} };
         }
         return persistedState;

@@ -9,6 +9,7 @@ interface RanobeHistoryCardProps {
   chapterNumber: number;
   ranobeName: string;
   image: string;
+  progress: number;
 }
 
 const RanobeHistoryCard = ({
@@ -16,6 +17,7 @@ const RanobeHistoryCard = ({
   ranobeName,
   chapterNumber,
   image,
+  progress,
 }: RanobeHistoryCardProps) => {
   const removeHistoryItem = useChapterHistory.use.removeChapterById();
   const handleRemove = () => {
@@ -39,9 +41,10 @@ const RanobeHistoryCard = ({
         </Typography>
         <Typography variant="body2" color="textSecondary">
           <NavigateLink to={`/chapters/${ranobeId}/${chapterNumber}`}>
-            Глава: {chapterNumber}
+            Глава: {chapterNumber} - {progress}%
           </NavigateLink>
         </Typography>
+        <progress className={classes.progress} max={100} value={progress} />
         <IconButton onClick={handleRemove} className={classes.deleteButton}>
           <CloseIcon />
         </IconButton>
