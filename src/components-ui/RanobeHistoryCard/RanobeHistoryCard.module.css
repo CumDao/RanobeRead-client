@@ -16,14 +16,13 @@
   position: absolute;
   top: 0;
   left: 0;
-  width: auto;
+  width: 100%;
   height: 100%;
-  object-fit: contain;
 }
 
 .textContainer.textContainer {
   padding-right: 22px;
-  padding-left: 0;
+  padding-left: 5px;
   width: 65%;
   display: flex;
   flex-direction: column;
@@ -60,4 +59,5 @@
   background-color: var(--mui-palette-info-main);
   border-radius: 16px;
   height: 8px;
+  width: 100%;
 }

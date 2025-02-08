@@ -41,8 +41,11 @@ const ChapterPage = () => {
     if (chapter) {
       const savedProgress = getSavedProgress(chapter.ranobe.id) ?? 0;
       if (savedProgress) {
-        const scrollY =
-          (savedProgress / 100) * (document.documentElement.scrollHeight - window.innerHeight);
+        const maxScroll = Math.max(
+          document.documentElement.scrollHeight - window.innerHeight,
+          document.body.scrollHeight - window.innerHeight,
+        );
+        const scrollY = (savedProgress / 100) * maxScroll;
         window.scrollTo({ top: scrollY, behavior: 'smooth' });
       }
     }

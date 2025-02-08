@@ -26,22 +26,24 @@ const RanobeHistoryCard = ({
 
   return (
     <Card className={classes.card}>
-      <NavigateLink to={`/ranobe/${ranobeId}`} className={classes.imageContainer}>
-        <CardMedia
-          component="img"
-          alt={ranobeName}
-          image={`${import.meta.env.VITE_API_URL}${image}`}
-          className={classes.image}
-          loading="lazy"
-        />
-      </NavigateLink>
+      <div className={classes.imageContainer}>
+        <NavigateLink to={`/ranobe/${ranobeId}`}>
+          <CardMedia
+            component="img"
+            alt={ranobeName}
+            image={`${import.meta.env.VITE_API_URL}${image}`}
+            className={classes.image}
+            loading="lazy"
+          />
+        </NavigateLink>
+      </div>
       <CardContent className={classes.textContainer}>
         <Typography variant="h6" className={classes.title}>
           <NavigateLink to={`/ranobe/${ranobeId}`}>{ranobeName}</NavigateLink>
         </Typography>
         <Typography variant="body2" color="textSecondary">
           <NavigateLink to={`/chapters/${ranobeId}/${chapterNumber}`}>
-            Глава: {chapterNumber} - {progress}%
+            Глава: {chapterNumber} - {progress > 100 ? 100 : progress}%
           </NavigateLink>
         </Typography>
         <progress className={classes.progress} max={100} value={progress} />

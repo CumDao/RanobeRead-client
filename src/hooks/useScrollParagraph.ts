@@ -10,10 +10,11 @@ const useScrollParagraph = ({ currentProgress, chapter }: UseScrollParagraphProp
   useEffect(() => {
     const handleScroll = () => {
       const scrollY = window.scrollY;
-      const scrollHeight = document.documentElement.scrollHeight;
-      const innerHeight = window.innerHeight;
-      const pageHeight = scrollHeight - innerHeight;
-      const progress = Math.min((scrollY / pageHeight) * 100, 100);
+      const maxScroll = Math.max(
+        document.documentElement.scrollHeight - window.innerHeight,
+        document.body.scrollHeight - window.innerHeight,
+      );
+      const progress = (scrollY / maxScroll) * 100;
       currentProgress.current = Math.floor(progress);
     };
 
