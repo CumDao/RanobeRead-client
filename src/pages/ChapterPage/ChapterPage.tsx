@@ -39,7 +39,7 @@ const ChapterPage = () => {
 
   useEffect(() => {
     if (chapter) {
-      const savedProgress = getSavedProgress(chapter.ranobe.id) ?? 0;
+      const savedProgress = getSavedProgress(chapter.ranobe.id, chapter.chapterNumber) ?? 0;
       if (savedProgress) {
         const maxScroll = Math.max(
           document.documentElement.scrollHeight - window.innerHeight,

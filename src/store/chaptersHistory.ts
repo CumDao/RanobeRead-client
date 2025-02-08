@@ -19,7 +19,7 @@ interface ChaptersHistoryState {
   getChapterById: (ranobeId: string) => number | null;
   clearHistory: () => void;
   removeChapterById: (ranobeId: string) => void;
-  getProgress: (ranobeId: string) => number | null;
+  getProgress: (ranobeId: string, chapterNumber: number) => number | null;
 }
 
 const useChapterHistoryStore = create<ChaptersHistoryState>()(
@@ -60,7 +60,10 @@ const useChapterHistoryStore = create<ChaptersHistoryState>()(
           return { chapters: updatedChapters };
         });
       },
-      getProgress: (ranobeId: string) => get().chapters[ranobeId]?.progress || null,
+      getProgress: (ranobeId: string, chapterNumber: number) => {
+        const chapter = get().chapters[ranobeId];
+        return chapter.chapterNumber === chapterNumber ? chapter.progress : null;
+      },
     }),
     {
       name: CHAPTERS_HISTORY,
