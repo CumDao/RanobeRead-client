@@ -40,14 +40,16 @@ const ChapterPage = () => {
   useEffect(() => {
     if (chapter) {
       const savedProgress = getSavedProgress(chapter.ranobe.id, chapter.chapterNumber) ?? 0;
-      if (savedProgress) {
-        const maxScroll = Math.max(
-          document.documentElement.scrollHeight - window.innerHeight,
-          document.body.scrollHeight - window.innerHeight,
-        );
-        const scrollY = (savedProgress / 100) * maxScroll;
-        window.scrollTo({ top: scrollY, behavior: 'smooth' });
+      if (savedProgress === 0) {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+        return;
       }
+      const maxScroll = Math.max(
+        document.documentElement.scrollHeight - window.innerHeight,
+        document.body.scrollHeight - window.innerHeight,
+      );
+      const scrollY = (savedProgress / 100) * maxScroll;
+      window.scrollTo({ top: scrollY, behavior: 'smooth' });
     }
   }, [chapter]);
 
