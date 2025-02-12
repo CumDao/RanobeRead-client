@@ -11,6 +11,7 @@ import Breadcrumbs, { BreadcrumbItem } from '../../components-ui/Breadcrumbs/Bre
 import DOMPurify from 'dompurify';
 import PageSwitcher from '../PageSwitcher';
 import classes from './ReadChapter.module.css';
+import { PROJECT_NAME } from '../../constants/titles';
 
 const ReadChapter = () => {
   const currentProgress = useRef<number | null>(null);
@@ -34,14 +35,6 @@ const ReadChapter = () => {
     return () => {
       if (!chapter) return;
       saveProgress();
-      console.log(currentProgress);
-      console.log({
-        ranobeName: chapter.ranobe.nameFirst,
-        chapterNumber: chapter.chapterNumber,
-        ranobeId: chapter.ranobe.id,
-        image: chapter.ranobe.image,
-        progress: currentProgress.current,
-      });
     };
   }, [saveProgress]);
 
@@ -64,11 +57,10 @@ const ReadChapter = () => {
   useScrollParagraph({ currentProgress, chapter });
 
   const formattedDate = useMemo(() => formatDate(chapter?.updatedAt || ''), [chapter?.updatedAt]);
-
   const breadcrumbs = useMemo(
     (): BreadcrumbItem[] => [
       {
-        label: 'RanobeRead',
+        label: PROJECT_NAME,
         to: '/',
         icon: <HomeIcon />,
       },

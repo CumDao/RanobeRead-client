@@ -32,7 +32,7 @@ const PageSwitcher = ({ isLast, currentPage, baseUrl }: PageSwitcherProps) => {
 
   return (
     <div className={classes.switchContainer}>
-      {!!currentPage && (
+      {currentPage !== 1 && (
         <Button
           variant="contained"
           startIcon={<NavigateBeforeIcon />}

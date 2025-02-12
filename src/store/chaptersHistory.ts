@@ -62,7 +62,7 @@ const useChapterHistoryStore = create<ChaptersHistoryState>()(
       },
       getProgress: (ranobeId: string, chapterNumber: number) => {
         const chapter = get().chapters[ranobeId];
-        return chapter.chapterNumber === chapterNumber ? chapter.progress : null;
+        return chapter?.chapterNumber === chapterNumber ? chapter.progress : null;
       },
     }),
     {

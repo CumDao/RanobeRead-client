@@ -2,52 +2,50 @@ import { createBrowserRouter } from 'react-router-dom';
 import MainPage from '../pages/MainPage';
 import NotFound from '../pages/NotFoundPage';
 import RanobeDetailPage from '../pages/RanobeDetailPage';
-import { MainLayout, ReadLayout } from './layouts';
+import { MainLayout, ReadLayout, RootLayout } from './layouts';
 import ChapterPage from '../pages/ChapterPage';
-import { useChapter } from '../store/chapter';
-import { useLastRanobes } from '../store/lastRanobes';
-import { useTopRanobes } from '../store/topRanobes';
+import AuthPage from '../pages/AuthPage';
+import { chapterLoader, mainLoader, rootLoader } from './loaders';
 
 const routes = createBrowserRouter([
   {
-    path: '/',
-    element: <MainLayout />,
+    element: <RootLayout />,
+    loader: rootLoader,
     children: [
       {
         path: '/',
-        element: <MainPage />,
-        loader: async () => {
-          useLastRanobes.getState().fetchLastRanobes();
-          useTopRanobes.getState().fetchTopRanobes();
-        },
+        element: <MainLayout />,
+        children: [
+          {
+            path: '/',
+            element: <MainPage />,
+            loader: mainLoader,
+          },
+          {
+            path: '/ranobe/:id',
+            element: <RanobeDetailPage />,
+          },
+        ],
+        errorElement: <NotFound />,
       },
       {
-        path: '/ranobe/:id',
-        element: <RanobeDetailPage />,
-        loader: async () => {},
+        path: '/chapters',
+        element: <ReadLayout />,
+        children: [
+          {
+            path: ':id/:chapterNumber',
+            element: <ChapterPage />,
+            loader: chapterLoader,
+          },
+        ],
+        errorElement: <NotFound />,
       },
-    ],
-    errorElement: <NotFound />,
-  },
-  {
-    path: '/chapters',
-    element: <ReadLayout />,
-    children: [
       {
-        path: ':id/:chapterNumber',
-        element: <ChapterPage />,
-        loader: async ({ params }) => {
-          const { id, chapterNumber } = params;
-          if (id && (chapterNumber || chapterNumber === '0')) {
-            useChapter.getState().fetchChapter({
-              ranobeId: id,
-              chapterNumber: chapterNumber,
-            });
-          }
-        },
+        path: '/auth',
+        element: <AuthPage />,
+        errorElement: <NotFound />,
       },
     ],
-    errorElement: <NotFound />,
   },
 ]);
 

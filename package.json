@@ -1,7 +1,7 @@
 {
   "name": "ranobe-read",
   "private": true,
-  "version": "0.0.3",
+  "version": "0.0.4",
   "type": "module",
   "scripts": {
     "start:dev": "vite --mode development",
@@ -17,17 +17,22 @@
   "dependencies": {
     "@emotion/react": "^11.14.0",
     "@emotion/styled": "^11.14.0",
+    "@hookform/resolvers": "^4.0.0",
     "@mui/icons-material": "^6.1.1",
+    "@mui/lab": "^6.0.0-beta.26",
     "@mui/material": "^6.2.1",
     "@mui/styled-engine-sc": "^6.2.1",
     "axios": "^1.7.9",
     "clsx": "^2.1.1",
     "dompurify": "^3.2.4",
+    "formik": "^2.4.6",
     "ramda": "^0.30.1",
     "react": "19.0.0",
     "react-dom": "19.0.0",
+    "react-hook-form": "^7.54.2",
     "react-router-dom": "^7.1.1",
     "styled-components": "^6.1.13",
+    "yup": "^1.6.1",
     "zustand": "^5.0.3"
   },
   "devDependencies": {

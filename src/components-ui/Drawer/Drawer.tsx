@@ -1,4 +1,11 @@
-import { SwipeableDrawer, useMediaQuery, useTheme } from '@mui/material';
+import {
+  DialogActions,
+  DialogContent,
+  DialogTitle,
+  SwipeableDrawer,
+  useMediaQuery,
+  useTheme,
+} from '@mui/material';
 import classes from './Drawer.module.css';
 import { ReactNode } from 'react';
 
@@ -7,9 +14,18 @@ interface DrawerProps {
   handleClose: () => void;
   handleOpen: () => void;
   children: ReactNode;
+  header?: ReactNode;
+  footer?: ReactNode;
 }
 
-const Drawer = ({ isDrawerOpen, handleClose, handleOpen, children }: DrawerProps) => {
+const Drawer = ({
+  isDrawerOpen,
+  handleClose,
+  handleOpen,
+  children,
+  header,
+  footer,
+}: DrawerProps) => {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('md'));
 
@@ -30,7 +46,9 @@ const Drawer = ({ isDrawerOpen, handleClose, handleOpen, children }: DrawerProps
         paper: classes.paper,
       }}
     >
-      {children}
+      {header && <DialogTitle>{header}</DialogTitle>}
+      <DialogContent>{children}</DialogContent>
+      {footer && <DialogActions>{footer}</DialogActions>}
     </SwipeableDrawer>
   );
 };
