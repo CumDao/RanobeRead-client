@@ -22,11 +22,7 @@ export const registrationSchema = yup.object().shape({
 });
 
 export const loginSchema = yup.object().shape({
-  email: yup
-    .string()
-    .trim()
-    .required('Email обязателен!')
-    .matches(regEmail, 'Введенное значение не соответствует формату email.'),
+  loginOrEmail: yup.string().trim().required('Email или логин обязателен!'),
   password: yup
     .string()
     .trim()

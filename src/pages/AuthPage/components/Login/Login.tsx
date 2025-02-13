@@ -20,7 +20,7 @@ const Login = () => {
     formState: { errors },
   } = useForm<LoginRequest>({
     defaultValues: {
-      email: '',
+      loginOrEmail: '',
       password: '',
     },
     resolver: yupResolver(loginSchema),
@@ -30,18 +30,18 @@ const Login = () => {
     <div className={classes.container}>
       <div>Через соцсети</div>
       <form autoComplete="off" className={classes.form} onSubmit={handleSubmit(onSubmit)}>
-        <div>Через логин и пароль</div>
+        <div>Через логин/почту и пароль</div>
         <TextField
-          label="Email"
+          label="email или логин"
           variant="outlined"
-          type="email"
+          type="text"
           autoComplete="off"
-          {...register('email')}
-          error={!!errors.email}
-          helperText={errors.email?.message}
+          {...register('loginOrEmail')}
+          error={!!errors.loginOrEmail}
+          helperText={errors.loginOrEmail?.message}
         />
         <TextField
-          label="Пароль"
+          label="пароль"
           variant="outlined"
           type="password"
           autoComplete="new-password"
