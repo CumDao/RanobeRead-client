@@ -11,7 +11,7 @@ interface AuthState {
   userData: Profile | null;
   isLoading: boolean;
   error: string | null;
-  auth: (authData: LoginRequest | RegisterRequest) => void;
+  auth: (authData: LoginRequest | RegisterRequest, recaptcha?: string) => void;
   signOut: () => void;
   clearError: () => void;
   setPrevUrl: (prevUrl: string) => void;
@@ -25,10 +25,10 @@ const useAuthStore = create<AuthState>()(
       userData: null,
       isLoading: false,
       error: null,
-      auth: async (authData: LoginRequest | RegisterRequest) => {
+      auth: async (authData: LoginRequest | RegisterRequest, recaptcha?: string) => {
         set({ isLoading: true, error: null });
         try {
-          const user = await auth(authData);
+          const user = await auth(authData, recaptcha);
           set({ userData: user });
         } catch (error) {
           if (axios.isAxiosError(error)) {

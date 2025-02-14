@@ -8,3 +8,11 @@
   flex-direction: column;
   gap: 20px;
 }
+
+.captcha {
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
+  height: 75px;
+  border-radius: 8px;
+}

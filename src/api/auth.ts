@@ -4,9 +4,13 @@ import { LoginRequest, LoginResponce, Profile, RegisterRequest } from '../types/
 
 import api from './axios';
 
-export const auth = async (authData: LoginRequest | RegisterRequest): Promise<Profile> => {
+export const auth = async (
+  authData: LoginRequest | RegisterRequest,
+  recaptcha?: string,
+): Promise<Profile> => {
   const url = isRegisterRequest(authData) ? 'registration' : 'login';
-  const response = await api.post<LoginResponce>(`/auth/${url}`, authData);
+  const headers = recaptcha ? { recaptcha: recaptcha } : {};
+  const response = await api.post<LoginResponce>(`/auth/${url}`, authData, { headers });
   setToken(response.data.token);
   return response.data.user;
 };

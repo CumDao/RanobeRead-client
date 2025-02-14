@@ -5,24 +5,43 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import { registrationSchema } from '../../../../helpers/authSchema';
 import { useAuth } from '../../../../store/auth';
 import { Button, TextField, Typography } from '@mui/material';
+import ReCAPTCHA from 'react-google-recaptcha';
+import { useState } from 'react';
+
+interface RegistrationForm extends RegisterRequest {
+  repeatPassword: string;
+}
 
 const Registration = () => {
   const isLoading = useAuth.use.isLoading();
   const error = useAuth.use.error();
   const auth = useAuth.use.auth();
-  const onSubmit = (registrationData: RegisterRequest) => {
-    auth(registrationData);
+  const [recaptchaValue, setRecaptchaValue] = useState<string | null>(null);
+  const [captchaError, setCaptchaError] = useState<string | null>(null);
+  const handleCaptcha = (token: string | null) => {
+    setRecaptchaValue(token);
+    setCaptchaError(null);
+  };
+  const onSubmit = (formData: RegistrationForm) => {
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    const { repeatPassword: _unused, ...registrationData } = formData;
+    if (recaptchaValue) {
+      auth(registrationData as RegisterRequest, recaptchaValue);
+    } else {
+      setCaptchaError('Завершите reCAPTCHA');
+    }
   };
 
   const {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm<RegisterRequest>({
+  } = useForm<RegistrationForm>({
     defaultValues: {
       email: '',
       login: '',
       password: '',
+      repeatPassword: '',
     },
     resolver: yupResolver(registrationSchema),
   });
@@ -33,7 +52,7 @@ const Registration = () => {
         <div>Через логин и пароль</div>
         <TextField
           id="outlined-basic"
-          label="Логин"
+          label="логин"
           variant="outlined"
           type="text"
           {...register('login')}
@@ -41,7 +60,7 @@ const Registration = () => {
           helperText={errors.login?.message}
         />
         <TextField
-          label="Email"
+          label="email"
           variant="outlined"
           type="email"
           autoComplete="off"
@@ -50,7 +69,7 @@ const Registration = () => {
           helperText={errors.email?.message}
         />
         <TextField
-          label="Пароль"
+          label="пароль"
           variant="outlined"
           type="password"
           autoComplete="new-password"
@@ -58,11 +77,27 @@ const Registration = () => {
           error={!!errors.password}
           helperText={errors.password?.message}
         />
-        {error && (
+        <TextField
+          label="повторите пароль"
+          variant="outlined"
+          type="password"
+          autoComplete="new-password"
+          {...register('repeatPassword')}
+          error={!!errors.repeatPassword}
+          helperText={errors.repeatPassword?.message}
+        />
+        {(captchaError || error) && (
           <Typography color="error" variant="body2">
-            {error}
+            {captchaError || error}
           </Typography>
         )}
+        <div className={classes.captcha}>
+          <ReCAPTCHA
+            sitekey={import.meta.env.VITE_GOOGLE_RECAPTCHA_SITE_KEY}
+            theme="light"
+            onChange={handleCaptcha}
+          />
+        </div>
         <Button
           loading={isLoading}
           loadingPosition="center"
