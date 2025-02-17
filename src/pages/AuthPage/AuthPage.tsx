@@ -12,7 +12,6 @@ import UserCard from '../../components-ui/UserCard';
 import { PROJECT_NAME } from '../../constants/titles';
 import clsx from 'clsx';
 import { useNavigate } from 'react-router-dom';
-import ThemeChanger from '../../components/ThemeChanger';
 
 const AuthPage = () => {
   const navigate = useNavigate();
@@ -42,9 +41,9 @@ const AuthPage = () => {
 
   return (
     <div className={classes.authContainer}>
-      <div className={classes.themeChanger}>
+      {/* <div className={classes.themeChanger}>
         <ThemeChanger />
-      </div>
+      </div> */}
       <div className={classes.authContent}>
         <div className={classes.authLogo}>
           <Logo />

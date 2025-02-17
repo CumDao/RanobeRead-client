@@ -3,6 +3,9 @@ export const paletteDark = {
     main: '#666666',
     dark: '#838383',
   },
+  background: {
+    default: '#222222',
+  },
 };
 
 export const paletteLight = {
