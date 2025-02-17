@@ -46,7 +46,7 @@ const Header = () => {
                   anchorEl={anchorEl}
                   open={open}
                   onClose={handleClose}
-                  onClick={handleClose}
+                  disableScrollLock={true}
                   anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }}
                   transformOrigin={{ vertical: 'top', horizontal: 'right' }}
                 >

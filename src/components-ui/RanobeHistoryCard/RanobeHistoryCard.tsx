@@ -3,6 +3,7 @@ import classes from './RanobeHistoryCard.module.css';
 import CloseIcon from '@mui/icons-material/Close';
 import { useChapterHistory } from '../../store/chaptersHistory';
 import NavigateLink from '../NavigateLink';
+import { getFullUrl } from '../../helpers/getFullUrl';
 
 interface RanobeHistoryCardProps {
   ranobeId: string;
@@ -31,7 +32,7 @@ const RanobeHistoryCard = ({
           <CardMedia
             component="img"
             alt={ranobeName}
-            image={`${import.meta.env.VITE_API_URL}${image}`}
+            image={getFullUrl(image)}
             className={classes.image}
             loading="lazy"
           />

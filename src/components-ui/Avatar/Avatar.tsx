@@ -1,5 +1,6 @@
 import { MouseEvent } from 'react';
 import classes from './Avatar.module.css';
+import { getFullUrl } from '../../helpers/getFullUrl';
 
 interface AvatarProps {
   avatarUrl: string | null;
@@ -14,7 +15,7 @@ const Avatar = ({ avatarUrl, login, onClick }: AvatarProps) => {
         <img
           alt="avatar"
           className={classes.avatar}
-          src={`${import.meta.env.VITE_API_URL}${avatarUrl}`}
+          src={getFullUrl(avatarUrl)}
           onClick={onClick}
         />
       ) : (

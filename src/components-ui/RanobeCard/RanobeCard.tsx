@@ -12,6 +12,7 @@ import StarIcon from '@mui/icons-material/Star';
 import TagList from '../RanobeCardTags/RanobeCardTags';
 import classes from './RanobeCard.module.css';
 import NavigateLink from '../NavigateLink';
+import { getFullUrl } from '../../helpers/getFullUrl';
 
 const animation = 'wave';
 
@@ -28,7 +29,7 @@ const RanobeCard = ({ id, nameFirst, rating, image, description, status, tags }:
                 <CardMedia
                   className={classes.image}
                   component="img"
-                  image={`${import.meta.env.VITE_API_URL}${image}`}
+                  image={getFullUrl(image)}
                   alt={nameFirst}
                   loading="lazy"
                   draggable={false}

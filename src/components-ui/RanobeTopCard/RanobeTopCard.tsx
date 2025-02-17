@@ -12,6 +12,7 @@ import { RanobeTop } from '../../types/ranobe';
 import { DragEvent } from 'react';
 import classes from './RanobeTopCard.module.css';
 import NavigateLink from '../NavigateLink';
+import { getFullUrl } from '../../helpers/getFullUrl';
 
 interface RanobeTopCardProps extends RanobeTop {}
 
@@ -31,7 +32,7 @@ const RanobeTopCard = ({ id, nameFirst, rating, image }: RanobeTopCardProps) => 
             <CardMedia
               className={classes.image}
               component="img"
-              image={`${import.meta.env.VITE_API_URL}${image}`}
+              image={getFullUrl(image)}
               alt={nameFirst}
               loading="lazy"
               draggable={false}
