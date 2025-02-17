@@ -46,7 +46,10 @@ const Header = () => {
                   anchorEl={anchorEl}
                   open={open}
                   onClose={handleClose}
+                  onClick={handleClose}
                   disableScrollLock={true}
+                  disableAutoFocus
+                  disableEnforceFocus
                   anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }}
                   transformOrigin={{ vertical: 'top', horizontal: 'right' }}
                 >

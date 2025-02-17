@@ -1,4 +1,4 @@
-.card {
+.card.card {
   width: 135px;
   min-width: 135px;
   height: 235px;
@@ -10,6 +10,7 @@
     box-shadow 0.3s;
   display: flex;
   flex-direction: column;
+  background-color: var(--mui-palette-background-default);
 }
 
 .imageContainer.imageContainer {
@@ -96,7 +97,7 @@
 }
 
 @media (max-width: 960px) {
-  .card {
+  .card.card {
     width: 115px;
     min-width: 115px;
     height: 205px;
@@ -108,7 +109,7 @@
 }
 
 @media (max-width: 480px) {
-  .card {
+  .card.card {
     width: 95px;
     min-width: 95px;
     height: 180px;

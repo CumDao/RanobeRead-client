@@ -1,4 +1,4 @@
-.card {
+.card.card {
   width: 380px;
   height: 300px;
   border-radius: 10px;
@@ -9,6 +9,7 @@
     box-shadow 0.3s;
   display: flex;
   flex-wrap: wrap;
+  background-color: var(--mui-palette-background-default);
 }
 
 .imageContainer {
