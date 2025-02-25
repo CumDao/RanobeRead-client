@@ -1,3 +1,4 @@
+import detectOSAndBrowser from '../helpers/detectOSAndBrowser';
 import { isRegisterRequest } from '../helpers/registerGuard';
 import { setToken } from '../helpers/storageToken';
 import { LoginRequest, LoginResponce, Profile, RegisterRequest } from '../types/auth';
@@ -10,7 +11,12 @@ export const auth = async (
 ): Promise<Profile> => {
   const url = isRegisterRequest(authData) ? 'registration' : 'login';
   const headers = recaptcha ? { recaptcha: recaptcha } : {};
-  const response = await api.post<LoginResponce>(`/auth/${url}`, authData, { headers });
+  const { platform, browser } = detectOSAndBrowser();
+  const response = await api.post<LoginResponce>(
+    `/auth/${url}`,
+    { ...authData, platform, browser },
+    { headers },
+  );
   setToken(response.data.token);
   return response.data.user;
 };

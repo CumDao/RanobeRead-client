@@ -42,6 +42,10 @@ const Registration = () => {
       login: '',
       password: '',
       repeatPassword: '',
+      // email: 'alex.omegon@gmail.com',
+      // login: 'aaaaaa',
+      // password: 'Elpsycongroo1',
+      // repeatPassword: 'Elpsycongroo1',
     },
     resolver: yupResolver(registrationSchema),
   });

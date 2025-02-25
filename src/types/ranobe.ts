@@ -8,6 +8,7 @@ export interface Ranobe extends RanobeTop {
   description: string;
   status: string;
   tags: Tag[];
+  updatedAt: string;
 }
 
 export interface Tag {
