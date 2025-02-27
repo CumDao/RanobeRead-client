@@ -6,7 +6,7 @@ import { registrationSchema } from '../../../../helpers/authSchema';
 import { useAuth } from '../../../../store/auth';
 import { Button, TextField, Typography } from '@mui/material';
 import ReCAPTCHA from 'react-google-recaptcha';
-import { useState } from 'react';
+import { useCallback, useState } from 'react';
 
 interface RegistrationForm extends RegisterRequest {
   repeatPassword: string;
@@ -22,15 +22,18 @@ const Registration = () => {
     setRecaptchaValue(token);
     setCaptchaError(null);
   };
-  const onSubmit = (formData: RegistrationForm) => {
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    const { repeatPassword: _unused, ...registrationData } = formData;
-    if (recaptchaValue) {
-      auth(registrationData as RegisterRequest, recaptchaValue);
-    } else {
-      setCaptchaError('Завершите reCAPTCHA');
-    }
-  };
+  const onSubmit = useCallback(
+    (formData: RegistrationForm) => {
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
+      const { repeatPassword: _unused, ...registrationData } = formData;
+      if (recaptchaValue) {
+        auth(registrationData as RegisterRequest, recaptchaValue);
+      } else {
+        setCaptchaError('Завершите reCAPTCHA');
+      }
+    },
+    [auth, recaptchaValue],
+  );
 
   const {
     register,

@@ -45,7 +45,7 @@ const useAuthStore = create<AuthState>()(
       },
       signOut() {
         removeToken();
-        set({ userData: null });
+        set({ userData: null, error: null });
       },
       setPrevUrl(prevUrl: string) {
         set({ prevUrl: prevUrl });

@@ -1,7 +1,13 @@
 import detectOSAndBrowser from '../helpers/detectOSAndBrowser';
 import { isRegisterRequest } from '../helpers/registerGuard';
 import { setToken } from '../helpers/storageToken';
-import { LoginRequest, LoginResponce, Profile, RegisterRequest } from '../types/auth';
+import {
+  LoginRequest,
+  LoginResponce,
+  Profile,
+  RefreshResponce,
+  RegisterRequest,
+} from '../types/auth';
 
 import api from './axios';
 
@@ -24,4 +30,9 @@ export const auth = async (
 export const getProfile = async (): Promise<Profile> => {
   const response = await api.get<Profile>('/auth/profile');
   return response.data;
+};
+
+export const refresh = async () => {
+  const responce = await api.post<RefreshResponce>('/auth/refresh');
+  return responce.data.token;
 };

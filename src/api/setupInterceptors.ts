@@ -5,6 +5,7 @@ import { getToken, removeToken } from '../helpers/storageToken';
 const setupInterceptors = (api: AxiosInstance) => {
   api.interceptors.request.use(
     (config) => {
+      config.withCredentials = true;
       const token = getToken();
       if (token) {
         config.headers.Authorization = `Bearer ${token}`;

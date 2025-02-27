@@ -5,7 +5,7 @@ import { loginSchema } from '../../../../helpers/authSchema';
 import { useForm } from 'react-hook-form';
 import { Button, TextField, Typography } from '@mui/material';
 import { useAuth } from '../../../../store/auth';
-import { useRef, useState } from 'react';
+import { useCallback, useRef, useState } from 'react';
 import ReCAPTCHA from 'react-google-recaptcha';
 
 const Login = () => {
@@ -19,14 +19,17 @@ const Login = () => {
     setRecaptchaValue(token);
     setCaptchaError(null);
   };
-  const onSubmit = (loginData: LoginRequest) => {
-    if (recaptchaValue) {
+  const onSubmit = useCallback(
+    (loginData: LoginRequest) => {
+      if (!recaptchaValue) {
+        setCaptchaError('Завершите reCAPTCHA');
+        return;
+      }
       auth(loginData, recaptchaValue);
       captchaRef.current?.reset();
-    } else {
-      setCaptchaError('Завершите reCAPTCHA');
-    }
-  };
+    },
+    [auth, recaptchaValue],
+  );
 
   const {
     register,
