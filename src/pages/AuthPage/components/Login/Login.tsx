@@ -26,7 +26,7 @@ const Login = () => {
         return;
       }
       auth(loginData, recaptchaValue);
-      captchaRef.current?.reset();
+      // captchaRef.current?.reset();
     },
     [auth, recaptchaValue],
   );

@@ -1,3 +1,4 @@
+import axios from 'axios';
 import detectOSAndBrowser from '../helpers/detectOSAndBrowser';
 import { isRegisterRequest } from '../helpers/registerGuard';
 import { setToken } from '../helpers/storageToken';
@@ -33,6 +34,9 @@ export const getProfile = async (): Promise<Profile> => {
 };
 
 export const refresh = async () => {
-  const responce = await api.post<RefreshResponce>('/auth/refresh');
+  const responce = await axios.get<RefreshResponce>(
+    `${import.meta.env.VITE_API_URL}/auth/refresh`,
+    { withCredentials: true },
+  );
   return responce.data.token;
 };

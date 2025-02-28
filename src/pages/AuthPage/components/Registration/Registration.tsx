@@ -26,11 +26,11 @@ const Registration = () => {
     (formData: RegistrationForm) => {
       // eslint-disable-next-line @typescript-eslint/no-unused-vars
       const { repeatPassword: _unused, ...registrationData } = formData;
-      if (recaptchaValue) {
-        auth(registrationData as RegisterRequest, recaptchaValue);
-      } else {
+      if (!recaptchaValue) {
         setCaptchaError('Завершите reCAPTCHA');
+        return;
       }
+      auth(registrationData as RegisterRequest, recaptchaValue);
     },
     [auth, recaptchaValue],
   );
