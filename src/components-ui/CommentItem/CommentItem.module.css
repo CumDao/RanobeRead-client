@@ -2,6 +2,11 @@
   margin-bottom: 16px;
 }
 
+.header.header {
+  display: flex;
+  align-items: center;
+}
+
 .username.username {
   margin-left: 7px;
   font-weight: 800;
@@ -32,4 +37,9 @@
 
 .children {
   margin-top: 8px;
+}
+
+.time.time {
+  margin-left: 10px;
+  font-size: 12px;
 }
