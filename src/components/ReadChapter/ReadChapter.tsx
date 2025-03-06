@@ -12,6 +12,7 @@ import DOMPurify from 'dompurify';
 import PageSwitcher from '../PageSwitcher';
 import classes from './ReadChapter.module.css';
 import { PROJECT_NAME } from '../../constants/titles';
+import { useComments } from '../../store/comments';
 
 const ReadChapter = () => {
   const currentProgress = useRef<number | null>(null);
@@ -19,6 +20,7 @@ const ReadChapter = () => {
   const isLoading = useChapter.use.isLoading();
   const chapterHistorySave = useChapterHistory.use.saveNewChapter();
   const getSavedProgress = useChapterHistory.use.getProgress();
+  const getComments = useComments.use.fetchComments();
 
   const saveProgress = useCallback(() => {
     if (!chapter) return;
@@ -40,6 +42,10 @@ const ReadChapter = () => {
 
   useEffect(() => {
     if (chapter) {
+      getComments({
+        commentType: 'chapters',
+        id: chapter.id,
+      });
       const savedProgress = getSavedProgress(chapter.ranobe.id, chapter.chapterNumber) ?? 0;
       if (savedProgress === 0) {
         window.scrollTo({ top: 0, behavior: 'instant' });

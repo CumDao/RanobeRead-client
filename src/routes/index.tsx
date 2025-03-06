@@ -5,7 +5,7 @@ import RanobeDetailPage from '../pages/RanobeDetailPage';
 import { MainLayout, ReadLayout, RootLayout } from './layouts';
 import ChapterPage from '../pages/ChapterPage';
 import AuthPage from '../pages/AuthPage';
-import { chapterLoader, mainLoader, rootLoader } from './loaders';
+import { chapterLoader, mainLoader, ranobeDetailsLoader, rootLoader } from './loaders';
 
 const routes = createBrowserRouter([
   {
@@ -24,6 +24,7 @@ const routes = createBrowserRouter([
           {
             path: '/ranobe/:id',
             element: <RanobeDetailPage />,
+            loader: ranobeDetailsLoader,
           },
         ],
         errorElement: <NotFound />,

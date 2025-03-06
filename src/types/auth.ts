@@ -26,3 +26,9 @@ export interface LoginResponce {
 export interface RefreshResponce {
   token: string;
 }
+
+export interface SlimUser {
+  id: string;
+  login: string;
+  avatarUrl: string | null;
+}

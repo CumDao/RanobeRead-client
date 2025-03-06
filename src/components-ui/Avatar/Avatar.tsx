@@ -1,25 +1,30 @@
 import { MouseEvent } from 'react';
 import classes from './Avatar.module.css';
 import { getFullUrl } from '../../helpers/getFullUrl';
+import clsx from 'clsx';
 
 interface AvatarProps {
   avatarUrl: string | null;
   login: string;
+  size?: 'small' | 'medium';
   onClick?: (event: MouseEvent<HTMLElement>) => void;
 }
 
-const Avatar = ({ avatarUrl, login, onClick }: AvatarProps) => {
+const Avatar = ({ avatarUrl, login, onClick, size = 'medium' }: AvatarProps) => {
   return (
     <>
       {avatarUrl ? (
         <img
           alt="avatar"
-          className={classes.avatar}
+          className={clsx(classes.avatar, size === 'small' ? classes.small : '')}
           src={getFullUrl(avatarUrl)}
           onClick={onClick}
         />
       ) : (
-        <div className={classes.avatarFallback} onClick={onClick}>
+        <div
+          className={clsx(classes.avatarFallback, size === 'small' ? classes.small : '')}
+          onClick={onClick}
+        >
           {login.toUpperCase()[0]}
         </div>
       )}

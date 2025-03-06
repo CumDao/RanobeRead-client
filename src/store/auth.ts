@@ -16,11 +16,12 @@ interface AuthState {
   clearError: () => void;
   setPrevUrl: (prevUrl: string) => void;
   getProfile: () => void;
+  isAuthenticated: () => boolean;
 }
 
 const useAuthStore = create<AuthState>()(
   persist(
-    (set) => ({
+    (set, get) => ({
       prevUrl: '/',
       userData: null,
       isLoading: false,
@@ -65,6 +66,7 @@ const useAuthStore = create<AuthState>()(
           set({ isLoading: false });
         }
       },
+      isAuthenticated: () => !!get().userData,
     }),
     {
       name: 'authStore',

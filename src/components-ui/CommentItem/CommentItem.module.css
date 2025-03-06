@@ -1,0 +1,35 @@
+.commentItem {
+  margin-bottom: 16px;
+}
+
+.username.username {
+  margin-left: 7px;
+  font-weight: 800;
+  font-size: 18px;
+}
+
+.content.content {
+  margin-top: 10px;
+  font-size: 16px;
+}
+
+.answer {
+  padding: 0;
+  height: auto;
+  min-width: 20px;
+  background: none;
+  border-radius: 0;
+  line-height: 18px;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  color: var(--link-color);
+}
+
+.answer:hover {
+  color: var(--link-color-dark);
+}
+
+.children {
+  margin-top: 8px;
+}
