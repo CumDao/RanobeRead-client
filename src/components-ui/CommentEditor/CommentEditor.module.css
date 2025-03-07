@@ -1,0 +1,34 @@
+.editorContainer {
+  margin-bottom: 2rem;
+}
+
+.toolbar {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.formatButton {
+  min-width: 32px;
+  padding: 4px;
+}
+
+.textField textarea {
+  font-family: 'Fira Code', monospace;
+  font-size: 14px;
+}
+
+.submitButton {
+  margin-top: 1rem;
+
+  /* background-color: #1976d2; */
+  color: white;
+}
+
+/* .submitButton:disabled {
+  background-color: #e0e0e0;
+}
+
+.submitButton:hover {
+  background-color: #1565c0;
+} */

@@ -7,6 +7,7 @@ import Box from '@mui/material/Box';
 import { useTheme } from '@mui/material';
 import { useAuth } from '../../store/auth';
 import { toast } from 'react-toastify';
+import CommentEditor from '../../components-ui/CommentEditor';
 
 const Comments = () => {
   const comments = useComments.use.comments();
@@ -44,6 +45,7 @@ const Comments = () => {
 
   return (
     <Box className={classes.commentsContainer}>
+      {isAuth && <CommentEditor onSubmit={handleAnswer} />}
       {commentTree.length === 0 ? (
         <Typography>Нет комментариев</Typography>
       ) : (
