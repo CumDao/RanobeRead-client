@@ -22,3 +22,8 @@ export interface ChaptersCommentUrl {
   commentType: 'chapters';
   id: number;
 }
+
+export interface CreateCommentRequest {
+  content: string;
+  parentId?: string;
+}

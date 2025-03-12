@@ -1,7 +1,7 @@
 import { useParams } from 'react-router-dom';
 import classes from './RanobeDetailPage.module.css';
 import RanobeDetails from '../../components/RanobeDetails';
-import Comments from '../../components/Comments';
+import CommentsList from '../../components/CommentsList';
 
 const RanobeDetailPage = () => {
   const { id } = useParams();
@@ -12,7 +12,7 @@ const RanobeDetailPage = () => {
   return (
     <div className={classes.mainContainer}>
       <RanobeDetails id={id} />
-      <Comments />
+      <CommentsList urlParams={{ commentType: 'ranobes', id }} />
     </div>
   );
 };

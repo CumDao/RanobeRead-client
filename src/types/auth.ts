@@ -10,7 +10,7 @@ export interface LoginRequest {
 }
 
 export interface Profile {
-  id: number;
+  id: string;
   email: string;
   login: string;
   avatarUrl: string | null;

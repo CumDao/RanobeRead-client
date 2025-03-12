@@ -11,26 +11,27 @@ interface AuthState {
   userData: Profile | null;
   isLoading: boolean;
   error: string | null;
+  isAuthenticated: boolean;
   auth: (authData: LoginRequest | RegisterRequest, recaptcha?: string) => void;
   signOut: () => void;
   clearError: () => void;
   setPrevUrl: (prevUrl: string) => void;
   getProfile: () => void;
-  isAuthenticated: () => boolean;
 }
 
 const useAuthStore = create<AuthState>()(
   persist(
-    (set, get) => ({
+    (set) => ({
       prevUrl: '/',
       userData: null,
       isLoading: false,
       error: null,
+      isAuthenticated: false,
       auth: async (authData: LoginRequest | RegisterRequest, recaptcha?: string) => {
         set({ isLoading: true, error: null });
         try {
           const user = await auth(authData, recaptcha);
-          set({ userData: user });
+          set({ userData: user, isAuthenticated: true });
         } catch (error) {
           if (axios.isAxiosError(error)) {
             set({ error: error.response?.data.message });
@@ -46,7 +47,7 @@ const useAuthStore = create<AuthState>()(
       },
       signOut() {
         removeToken();
-        set({ userData: null, error: null });
+        set({ userData: null, error: null, isAuthenticated: false });
       },
       setPrevUrl(prevUrl: string) {
         set({ prevUrl: prevUrl });
@@ -55,7 +56,7 @@ const useAuthStore = create<AuthState>()(
         set({ isLoading: true, error: null });
         try {
           const user = await getProfile();
-          set({ userData: user });
+          set({ userData: user, isAuthenticated: true });
         } catch (error) {
           if (axios.isAxiosError(error)) {
             set({ error: error.response?.data.message });
@@ -66,7 +67,6 @@ const useAuthStore = create<AuthState>()(
           set({ isLoading: false });
         }
       },
-      isAuthenticated: () => !!get().userData,
     }),
     {
       name: 'authStore',

@@ -1,14 +1,20 @@
 import { Box, Divider } from '@mui/material';
 import classes from './ChapterPage.module.css';
-import Comments from '../../components/Comments';
+import CommentsList from '../../components/CommentsList';
 import ReadChapter from '../../components/ReadChapter';
+import { useParams } from 'react-router-dom';
 
 const ChapterPage = () => {
+  const { id } = useParams();
+  if (!id) {
+    throw new Error('Ranobe ID is required');
+  }
+
   return (
     <Box className={classes.mainContainer}>
       <ReadChapter />
       <Divider orientation="horizontal" />
-      <Comments />
+      <CommentsList urlParams={{ commentType: 'ranobes', id }} />
     </Box>
   );
 };
