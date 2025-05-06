@@ -8,7 +8,7 @@ import AuthButton from '../../components-ui/AuthButton';
 import { PROJECT_NAME } from '../../constants/titles';
 import { useAuth } from '../../store/auth';
 import Avatar from '../../components-ui/Avatar';
-import { MouseEvent, useState } from 'react';
+import { MouseEvent, useEffect, useState } from 'react';
 import LogoutIcon from '@mui/icons-material/Logout';
 import SettingsIcon from '@mui/icons-material/Settings';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
@@ -27,6 +27,9 @@ const Header = () => {
   const handleOut = () => {
     signOut();
   };
+  useEffect(() => {
+    console.log(String(import.meta.env.VITE_GOOGLE_RECAPTCHA_SITE_KEY)[0]);
+  });
   return (
     <>
       <AppBar position="fixed" className={clsx(classes.header, classes.hideOnMobile)}>
