@@ -51,6 +51,10 @@ jobs:
           push: true
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
+          build-args: |
+            ‎VITE_API_URL‎='https://ranobe-read.ru/api/'
+            VITE_GOOGLE_RECAPTCHA_SITE_KEY‎=''
+            ‎VITE_ENV‎='production'
 
       - name: Generate artifact attestation
         uses: actions/attest-build-provenance@v2
