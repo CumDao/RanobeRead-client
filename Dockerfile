@@ -5,7 +5,7 @@ RUN npm install --legacy-peer-deps
 COPY . .
 
 
-RUN echo "VITE_API_URL=https://ranobe-read.ru/api\nVITE_GOOGLE_RECAPTCHA_SITE_KEY='6Le4C9YqAAAAAG5ua-U0yolPsDknGs83L3M6975K'" >> .env.production
+RUN echo "VITE_API_URL=https://ranobe-read.ru/api\nVITE_GOOGLE_RECAPTCHA_SITE_KEY=6Le4C9YqAAAAAG5ua-U0yolPsDknGs83L3M6975K >> .env.production
 RUN npm run build
 
 FROM nginx:alpine
