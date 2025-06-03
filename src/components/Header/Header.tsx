@@ -27,13 +27,14 @@ const Header = () => {
   const handleOut = () => {
     signOut();
   };
+  console.log(import.meta.env.VITE_GOOGLE_RECAPTCHA_SITE_KEY);
   return (
     <>
       <AppBar position="fixed" className={clsx(classes.header, classes.hideOnMobile)}>
         <Toolbar className={classes.toolbar}>
           <Link to="/" className={clsx(classes.container, classes.title)}>
             <Logo fontSize="medium" />
-            <Typography variant="h6">{`${PROJECT_NAME}${String(import.meta.env.VITE_GOOGLE_RECAPTCHA_SITE_KEY)[0]}`}</Typography>
+            <Typography variant="h6">{`${PROJECT_NAME}`}</Typography>
           </Link>
           {/* TODO: вернуть когда будет готово */}
           {/* <div className={classes.searchBox}><Search /></div> */}
