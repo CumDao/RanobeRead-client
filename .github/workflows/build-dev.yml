@@ -77,4 +77,4 @@ jobs:
 
       - name: Run Docker container
         run: |
-          docker run -d --name ranobe-container -p 5000:5000 ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:latest
+          docker run -d --name ranobe-container -p 5000:5000 ghcr.io/cumdao/ranoberead-client:latest
