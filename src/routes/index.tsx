@@ -6,6 +6,7 @@ import { MainLayout, ReadLayout, RootLayout } from './layouts';
 import ChapterPage from '../pages/ChapterPage';
 import AuthPage from '../pages/AuthPage';
 import { chapterLoader, mainLoader, ranobeDetailsLoader, rootLoader } from './loaders';
+import ErrorPage from '../pages/ErrorPage';
 
 const routes = createBrowserRouter([
   {
@@ -27,7 +28,6 @@ const routes = createBrowserRouter([
             loader: ranobeDetailsLoader,
           },
         ],
-        errorElement: <NotFound />,
       },
       {
         path: '/chapters',
@@ -39,12 +39,16 @@ const routes = createBrowserRouter([
             loader: chapterLoader,
           },
         ],
-        errorElement: <NotFound />,
+        errorElement: <ErrorPage />,
       },
       {
         path: '/auth',
         element: <AuthPage />,
-        errorElement: <NotFound />,
+        errorElement: <ErrorPage />,
+      },
+      {
+        path: '*',
+        element: <NotFound />,
       },
     ],
   },
