@@ -16,7 +16,29 @@ export interface Tag {
   name: string;
 }
 
-// interface Country {
-//   id: number;
-//   name: string;
-// }
+export interface RanobeDetails extends Ranobe {
+  nameSecond: string | null;
+  nameThird: string | null;
+  ratingCount: number;
+  chapters: number;
+  year: number;
+  createdAt: string;
+  country: Country;
+  author: Author;
+  translator: Translator;
+}
+
+interface Country {
+  id: number;
+  name: string;
+}
+
+interface Author {
+  id: number;
+  nameFirst: string;
+}
+
+interface Translator {
+  id: number;
+  name: string;
+}

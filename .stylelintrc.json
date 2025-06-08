@@ -16,7 +16,7 @@
         "message": "Class name should be cammelCase"
       }
     ],
-    "unit-allowed-list": ["%", "deg", "rem", "ms", "dvh", "px", "vw", "vh", "s"],
+    "unit-allowed-list": ["%", "deg", "rem", "ms", "dvh", "px", "vw", "vh", "s", "fr"],
     "media-feature-range-notation": null,
     "color-no-hex": [
       true,

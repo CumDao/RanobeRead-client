@@ -1,3 +1,65 @@
-.xd {
-  color: var(--mui-palette-text-primary);
+.detailsWrapper {
+  width: 100%;
+  display: flex;
+  gap: 30px;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.ranobeImage {
+  width: 25%;
+  min-width: 150px;
+  height: 100%;
+  object-fit: contain;
+  border-radius: 10px;
+}
+
+.contentWrapper {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.ratingWrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 30px;
+
+  .flex {
+    display: flex;
+    gap: 10px;
+
+    :last-child {
+      opacity: 0.7;
+    }
+  }
+}
+
+.optionsWrapper {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  width: 100%;
+  row-gap: 20px;
+}
+
+.continueButton.continueButton {
+  width: 200px;
+}
+
+.tagsWrapper {
+  margin-top: 10px;
+  width: 60%;
+  height: 84px;
+  overflow: hidden;
+  display: flex;
+  flex-flow: row wrap;
+  gap: 5px;
+}
+
+.descriptionWrapper {
+  margin-top: 53px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }

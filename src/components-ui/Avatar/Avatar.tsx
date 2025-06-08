@@ -1,6 +1,5 @@
 import { MouseEvent } from 'react';
 import classes from './Avatar.module.css';
-import { getFullUrl } from '../../helpers/getFullUrl';
 import clsx from 'clsx';
 
 interface AvatarProps {
@@ -17,7 +16,7 @@ const Avatar = ({ avatarUrl, login, onClick, size = 'medium' }: AvatarProps) => 
         <img
           alt="avatar"
           className={clsx(classes.avatar, size === 'small' ? classes.small : '')}
-          src={getFullUrl(avatarUrl)}
+          src={avatarUrl}
           onClick={onClick}
         />
       ) : (

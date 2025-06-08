@@ -5,6 +5,7 @@ import { useChapter } from '../store/chapter';
 import { useLastRanobes } from '../store/lastRanobes';
 import { useTopRanobes } from '../store/topRanobes';
 import { useComments } from '../store/comments';
+import { useRanobe } from '../store/ranobe';
 
 export const rootLoader = async () => {
   const token = getToken();
@@ -26,6 +27,7 @@ export const chapterLoader: LoaderFunction = async (params: LoaderFunctionArgs) 
 export const ranobeDetailsLoader: LoaderFunction = async (params: LoaderFunctionArgs) => {
   const { id } = params.params;
   if (id) {
+    useRanobe.getState().fetchRanobe(id);
     useComments.getState().fetchComments({
       commentType: 'ranobes',
       id,
